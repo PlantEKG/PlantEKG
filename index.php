@@ -16,10 +16,9 @@
 <!-- <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
 <!-- <script src="jquery_mobile/jquery.mobile-1.2.0.js"></script> -->
 
-
-<!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable:no;"> -->
-
 </head>
+
+
 <body id='body_div'>
 
 	<!-- HEADER -->
@@ -28,10 +27,43 @@
 	<div id='test'></div>
 
 	<!-- Displays all plants belonging to the collection of the user -> Pulls information from the collection table-->
-	<div id='My Plants'>Will display plants here</div>
+	<div id='My Plants'>Will display plants below <br><br>
+
+	<!-- Queries the collections table from plantEKG database for all plants belonging to the current user  -->
+	<?php
+
+	// Open connection to DB
+	$my_connection = mysql_connect('techview.cx3h6ibh7nag.us-east-1.rds.amazonaws.com', 'eecs394techview', 'showmetech') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
+
+	// Open database "techview"
+	$database_name = 'plantekg';
+	mysql_select_db($database_name) or die(mysql_error()) ;
+
+	$table_name='collection';
+
+	$collection_data_array = array();
+	$collection_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE user_id = '1'");
+	while($collection_data_hold = mysql_fetch_array($collection_data_query))
+	{
+		array_push($collection_data_array, $collection_data_hold);
+	}
+
+	$numberOfPlants = count($collection_data_array);
+
+	for ($ii = 0; $ii <= $numberOfPlants; $ii++ )
+	{
+		for ($jj = 0; $jj < 6; $jj++)
+		{
+			echo $collection_data_array[$ii][$jj] . " ";
+		}
+		echo "<br><br>";
+	}
+
+	?>
+	</div>
 
 	<div class='add_plant_button'>
-	<button type="button" onclick="alert('Hello world!')">Add New Plant to My Collection</button>
+	<a href="addplant.php">Add New Plant to My Collection</a>
 	<div>
 
 
