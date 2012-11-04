@@ -42,6 +42,25 @@ $collection_column5 = 'pot_size';
 $collection_column6 = 'other_info';
 	$collection_column6_type = 'varchar(255)';
 
+// Column info for plants
+$plant_table_name = 'plants';
+$plants_column1 = 'plant_id';
+	$plants_column1_type = 'INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (' . $plants_column1 . ')';
+$plants_column2 = 'plant_name';
+	$plants_column2_type = 'varchar(255)';
+$plants_column3 = 'spacing';
+	$plants_column3_type = 'varchar(255)';
+$plants_column4 = 'feed';
+	$plants_column4_type = 'varchar(255)';
+$plants_column5 = 'water';
+	$plants_column5_type = 'varchar(255)';
+$plants_column6 = 'preferred_light';
+	$plants_column6_type = 'varchar(255)';
+$plants_column7 = 'plant_url';
+	$plants_column7_type = 'varchar(255)';
+$plants_column8 = 'other_info';
+	$plants_column8_type = 'varchar(255)';
+
 
 // Create the user table
 mysql_query('CREATE TABLE ' . $user_table_name . '(
@@ -60,6 +79,17 @@ mysql_query('CREATE TABLE ' . $collection_table_name . '(
 ' . $collection_column4 . ' ' . $collection_column4_type . ',
 ' . $collection_column5 . ' ' . $collection_column5_type . ',
 ' . $collection_column6 . ' ' . $collection_column6_type . ')');
+
+// Create the plants table
+mysql_query('CREATE TABLE ' . $plant_table_name . '(
+' . $plants_column1 . ' ' . $plants_column1_type . ', 
+' . $plants_column2 . ' ' . $plants_column2_type . ', 
+' . $plants_column3 . ' ' . $plants_column3_type . ', 
+' . $plants_column4 . ' ' . $plants_column4_type . ',
+' . $plants_column5 . ' ' . $plants_column5_type . ',
+' . $plants_column6 . ' ' . $plants_column6_type . ',
+' . $plants_column7 . ' ' . $plants_column7_type . ',
+' . $plants_column8 . ' ' . $plants_column8_type . ')');
 
 
 ?>
