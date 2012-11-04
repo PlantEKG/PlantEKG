@@ -4,7 +4,7 @@
 	<title>PlantEKG</title>
 
 <!-- CSS FILE -->
-<!-- <link type="text/css" rel="stylesheet" href="main.css"> -->
+<link type="text/css" rel="stylesheet" href="main.css">
 <!-- JAVASCRIPT FILE -->
 <!-- <script type="text/javascript" src="main.js"></script> -->
 <!-- <script type="text/javascript" src="slider.js"></script> -->
@@ -27,7 +27,7 @@
 	<div id='test'></div>
 
 	<!-- Displays all plants belonging to the collection of the user -> Pulls information from the collection table-->
-	<div id='My Plants'>Will display plants below <br><br>
+	<div id='My Plants'>Displaying plants in my collection <br><br>
 
 	<!-- Queries the collections table from plantEKG database for all plants belonging to the current user  -->
 	<?php
@@ -62,8 +62,11 @@
 	?>
 	</div>
 
-	<div class='add_plant_button'>
-	<a href="addplant.php">Add New Plant to My Collection</a>
+	<div class='search_plants'>
+		<form action="addplant.php" method="get">
+		Search for a plant name <br><input type="text" name="plant_name" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter name here...':this.value;" value="Enter name here..." size="40"/><br>
+		<input type="submit" value="Submit">
+		</form>
 	<div>
 
 

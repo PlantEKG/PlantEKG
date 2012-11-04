@@ -1,0 +1,21 @@
+body, html
+{
+	margin: 0px;
+	height: 95%;
+	font-family: Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+
+
+#title
+{
+	color: yellow;
+	/*height: 15%;*/
+	font-weight: bold;
+	background: green;
+}
+
+#search_plants_container
+{
+	margin: 0% 5% 0% 5%;
+}
