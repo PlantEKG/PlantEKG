@@ -30,9 +30,9 @@ $user_column7 = 'other_info';
 // Column info for collection
 $collection_table_name = 'collection';
 $collection_column1 = 'user_id';
-	$collection_column1_type = 'int(11)';
+	$collection_column1_type = 'int references users(id)';
 $collection_column2 = 'plant_id';
-	$collection_column2_type = 'int(11)';
+	$collection_column2_type = 'int references plants(plant_id)';
 $collection_column3 = 'last_water_date';
 	$collection_column3_type = 'date';
 $collection_column4 = 'next_water_date';
@@ -41,6 +41,7 @@ $collection_column5 = 'pot_size';
 	$collection_column5_type = 'varchar(50)';
 $collection_column6 = 'other_info';
 	$collection_column6_type = 'varchar(255)';
+
 
 // Column info for plants
 $plant_table_name = 'plants';
