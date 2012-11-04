@@ -4,7 +4,7 @@
 	<title>PlantEKG</title>
 
 <!-- CSS FILE -->
-<!-- <link type="text/css" rel="stylesheet" href="main.css"> -->
+<link type="text/css" rel="stylesheet" href="main.css">
 <!-- JAVASCRIPT FILE -->
 <!-- <script type="text/javascript" src="main.js"></script> -->
 <!-- <script type="text/javascript" src="slider.js"></script> -->
