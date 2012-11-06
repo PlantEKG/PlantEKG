@@ -4,12 +4,16 @@
 	<title>PlantEKG</title>
 
 <!-- CSS FILE -->
-<link type="text/css" rel="stylesheet" href="main.css">
+<!-- <link type="text/css" rel="stylesheet" href="main.css"> -->
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+
 <!-- JAVASCRIPT FILE -->
 <!-- <script type="text/javascript" src="main.js"></script> -->
 <!-- <script type="text/javascript" src="slider.js"></script> -->
 <!-- JQuery for swipe -->
 <!-- <script src="jquery_mobile/jquery.js"></script> -->
+ <script src="js/bootstrap.js"></script>
+
 
 <!-- JQuery Mobile -->
 <!-- <link rel="stylesheet" href="jquery_mobile/jquery.mobile-1.2.0.css" /> -->
@@ -17,58 +21,47 @@
 <!-- <script src="jquery_mobile/jquery.mobile-1.2.0.js"></script> -->
 
 </head>
+<body>
+ <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+          <a class="brand" href="#" >PlantEKG</a>
+      </div>
+    </div>
 
+    <div class="container">
 
-<body id='body_div'>
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
 
-	<!-- HEADER -->
-	<div id='title'>PlantEKG</div>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
 
-	<div id='test'></div>
+      <hr>
 
-	<!-- Displays all plants belonging to the collection of the user -> Pulls information from the collection table-->
-	<div id='My Plants'>Displaying plants in my collection <br><br>
+      <footer>
+        <p>&copy; PlantEKG - EECS 394/405 2012</p>
+      </footer>
 
-	<!-- Queries the collections table from plantEKG database for all plants belonging to the current user  -->
-	<?php
-
-	// Open connection to DB
-	$my_connection = mysql_connect('techview.cx3h6ibh7nag.us-east-1.rds.amazonaws.com', 'eecs394techview', 'showmetech') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
-
-	// Open database "techview"
-	$database_name = 'plantekg';
-	mysql_select_db($database_name) or die(mysql_error()) ;
-
-	$table_name='collection';
-
-	$collection_data_array = array();
-	$collection_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE user_id = '1'");
-	while($collection_data_hold = mysql_fetch_array($collection_data_query))
-	{
-		array_push($collection_data_array, $collection_data_hold);
-	}
-
-	$numberOfPlants = count($collection_data_array);
-
-	for ($ii = 0; $ii <= $numberOfPlants; $ii++ )
-	{
-		for ($jj = 0; $jj < 6; $jj++)
-		{
-			echo $collection_data_array[$ii][$jj] . " ";
-		}
-		echo "<br><br>";
-	}
-
-	?>
-	</div>
-
-	<div class='search_plants'>
-		<form action="addplant.php" method="get">
-		Search for a plant name <br><input type="text" name="plant_name" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter name here...':this.value;" value="Enter name here..." size="40"/><br>
-		<input type="submit" value="Submit">
-		</form>
-	<div>
-
-
+    </div> <!-- /container -->
 </body>
 </html>
