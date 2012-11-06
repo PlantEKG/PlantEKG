@@ -49,26 +49,26 @@
 	$table_name='collection';
 
 	$collection_data_array = array();
-	$collection_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE user_id = '1'");
+	// $collection_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE user_id = '1'");
+	$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id");
 	while($collection_data_hold = mysql_fetch_array($collection_data_query))
 	{
 		array_push($collection_data_array, $collection_data_hold);
 	}
-
+// 11 is the index for the picture
 	$numberOfPlants = count($collection_data_array);
 
 	for ($ii = 0; $ii < $numberOfPlants; $ii++ )
 	{
 		echo "<div class='span4'>";
 		echo "<dl>";
-		echo "<h3> Plant " . $collection_data_array[$ii][1] . "</h3>";
+		echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
+		echo "<img src=". $collection_data_array[$ii][12] . ">";
 		echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 		echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 		echo "</dl>";
 		echo "</div>";
-
 	}
-
 	?>
 
       </div>
