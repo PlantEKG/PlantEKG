@@ -75,7 +75,7 @@
 
 	<div class='search_plants'>
 		<h3>Find More Plants to Add to your Collection</h3>
-		<form action="addplant.php" method="get">
+		<form action="add_plant.php" method="get">
 		Search for a plant name <br><input type="text" name="plant_name" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter name here...':this.value;" value="Enter name here..." size="40"/><br>
 		<input type="submit" value="Submit">
 		</form>
