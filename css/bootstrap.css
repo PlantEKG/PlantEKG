@@ -4218,10 +4218,9 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .brand {
   display: block;
-  
   padding: 10px 20px 10px;
   margin-left: -20px;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 200;
   color: #777777;
   text-shadow: 0 1px 0 #ffffff;
@@ -5846,13 +5845,13 @@ a.badge:hover {
 }
 
 .hero-unit {
-  padding: 60px;
-  margin-bottom: 30px;
+  padding: 50px;
+  /*margin-bottom: 30px;*/
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
   color: inherit;
-  background-color: #eeeeee;
+  /*background-color: #eeeeee;*/
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;

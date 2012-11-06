@@ -32,30 +32,54 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        <h3>Plants in my Collection</h3>
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
+	<?php
+
+	// Open connection to DB
+	$my_connection = mysql_connect('techview.cx3h6ibh7nag.us-east-1.rds.amazonaws.com', 'eecs394techview', 'showmetech') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
+
+	// Open database "techview"
+	$database_name = 'plantekg';
+	mysql_select_db($database_name) or die(mysql_error()) ;
+
+	$table_name='collection';
+
+	$collection_data_array = array();
+	$collection_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE user_id = '1'");
+	while($collection_data_hold = mysql_fetch_array($collection_data_query))
+	{
+		array_push($collection_data_array, $collection_data_hold);
+	}
+
+	$numberOfPlants = count($collection_data_array);
+
+	for ($ii = 0; $ii < $numberOfPlants; $ii++ )
+	{
+		echo "<div class='span4'>";
+		echo "<dl>";
+		echo "<h3> Plant " . $collection_data_array[$ii][1] . "</h3>";
+		echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
+		echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
+		echo "</dl>";
+		echo "</div>";
+
+	}
+
+	?>
+
       </div>
 
+	<div class='search_plants'>
+		<h3>Find More Plants to Add to your Collection</h3>
+		<form action="add_plant.php" method="get">
+		Search for a plant name <br><input type="text" name="plant_name" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter name here...':this.value;" value="Enter name here..." size="40"/><br>
+		<input type="submit" value="Submit">
+		</form>
+	<div>
       <hr>
 
       <footer>
