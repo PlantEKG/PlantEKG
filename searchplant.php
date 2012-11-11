@@ -62,7 +62,7 @@ function toggle(showHideDiv){
 		echo "</dl>";
 	?>
 	</div>
-	<button class="btn btn-small" type="button"><a href=http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php>Go Back</a></button>
+	<button class="btn btn-small" type="button"><a href=index.php>Go Back</a></button>
 	<button class="btn btn-small" type="button"><a href="javascript:toggle('pot sizes')">add to collection</a></button><br><br>
 	<div id='pot sizes' style="display: none;">
 		<button type="button" id'large pot'><a href="javascript:toggle('add')">Large pot</a></button>

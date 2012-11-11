@@ -14,12 +14,6 @@
 <!-- <script src="jquery_mobile/jquery.js"></script> -->
  <script src="js/bootstrap.js"></script>
 
-
-<!-- JQuery Mobile -->
-<!-- <link rel="stylesheet" href="jquery_mobile/jquery.mobile-1.2.0.css" /> -->
-<!-- <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
-<!-- <script src="jquery_mobile/jquery.mobile-1.2.0.js"></script> -->
-
 </head>
 <body>
  <div class="navbar navbar-inverse navbar-fixed-top">
