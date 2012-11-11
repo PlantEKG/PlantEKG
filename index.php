@@ -8,17 +8,11 @@
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 
 <!-- JAVASCRIPT FILE -->
-<!-- <script type="text/javascript" src="main.js"></script> -->
+<script type="text/javascript" src="main.js"></script>
 <!-- <script type="text/javascript" src="slider.js"></script> -->
 <!-- JQuery for swipe -->
 <!-- <script src="jquery_mobile/jquery.js"></script> -->
  <script src="js/bootstrap.js"></script>
-
-
-<!-- JQuery Mobile -->
-<!-- <link rel="stylesheet" href="jquery_mobile/jquery.mobile-1.2.0.css" /> -->
-<!-- <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script> -->
-<!-- <script src="jquery_mobile/jquery.mobile-1.2.0.js"></script> -->
 
 </head>
 <body>
@@ -28,6 +22,7 @@
       </div>
     </div>
 
+    <div id="largestContainer">
     <div class="container">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
@@ -50,7 +45,7 @@
 
 	$collection_data_array = array();
 	// $collection_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE user_id = '1'");
-	$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id");
+	$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id and collection.user_id='1'");
 	while($collection_data_hold = mysql_fetch_array($collection_data_query))
 	{
 		array_push($collection_data_array, $collection_data_hold);
@@ -63,7 +58,7 @@
 		echo "<div class='span4'>";
 		echo "<dl>";
 		echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
-		echo "<img src=". $collection_data_array[$ii][12] . ">";
+		echo "<img src=". $collection_data_array[$ii][12] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 		echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 		echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 		echo "</dl>";
@@ -82,6 +77,7 @@
 		<input type="submit" value="Submit">
 		</form>
 	<div>
+	</div>
       <hr>
 
       <footer>
