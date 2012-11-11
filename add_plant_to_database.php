@@ -18,7 +18,7 @@ $plant_url = $_REQUEST['plant_url'];
 // $msg = "plant_id: " . $plant_id . "<br>plant_name: " . $plant_name . "<br>spacing: " . $spacing . "<br>feed: " . $feed ."<br>water: " . $water ."<br>preferred_light: " . $preferred_light . "<br>plant_url: " . $picture_url ."<br>other_info: " . $other_info;    
 
 // Open connection to DB
-$my_connection = mysql_connect('techview.cx3h6ibh7nag.us-east-1.rds.amazonaws.com', 'eecs394techview', 'showmetech') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
+$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
 // Open database "techview"
 $database_name = 'plantekg';
