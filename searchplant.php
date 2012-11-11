@@ -9,7 +9,21 @@
 
 <!-- JAVASCRIPT FILE -->
 <script type="text/javascript" src="main.js"></script>
- <script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script language="javascript"> 
+function toggle(showHideDiv){
+	var ele = document.getElementById(showHideDiv);
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+
+  	}
+	else {
+		ele.style.display = "block";
+	}
+}
+
+</script>
 
 </head>
 <body>
@@ -48,6 +62,19 @@
 		echo "</dl>";
 	?>
 	</div>
-	<button class="btn btn-small" type="button"><a href=http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php>Go Back</a></button>
+	<button class="btn btn-small" type="button"><a href=http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php>Go Back</a></button>
+	<button class="btn btn-small" type="button"><a href="javascript:toggle('pot sizes')">add to collection</a></button><br><br>
+	<div id='pot sizes' style="display: none;">
+		<button type="button" id'large pot'><a href="javascript:toggle('add')">Large pot</a></button>
+		<button type="button" id='medium pot'><a href="javascript:toggle('add')">Medium pot</a></button>
+		<button type="button" id='small pot'><a href="javascript:toggle('add')">Small pot</a></button>
+		<br><br>
+		<div id='add' style="display: none;"><button class="btn btn-small" type="button">add</button><br><br></div>
+	</div>
+	
+
+
+
+
 </body>
 </html>
