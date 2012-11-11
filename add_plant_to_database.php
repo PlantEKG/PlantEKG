@@ -40,7 +40,7 @@ $plants_column6 = 'preferred_light';
 	$plants_column6_type = 'varchar(255)';
 $plants_column7 = 'plant_url';
 	$plants_column7_type = 'varchar(255)';
-$plants_column8 = 'other_info';
+$plants_column8 = 'other_infos';
 	$plants_column8_type = 'varchar(255)';
 
 
