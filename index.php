@@ -34,6 +34,8 @@
       <div class="row">
 	<?php
 
+	session_start();
+
 	// Open connection to DB
 	$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
@@ -61,12 +63,18 @@
 		echo "<img src=". $collection_data_array[$ii][12] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 		echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 		echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
+		//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 		echo "</dl>";
 		echo "</div>";
 	}
+
+	$_SESSION['collection_user'] = $collection_data_array[0][0];
+
+	//echo $_SESSION['collection_user'];
+
 	?>
 
-      </div>
+    </div>
 
 	<div class='search_plants'>
 		<h3>Find More Plants to Add to your Collection</h3>

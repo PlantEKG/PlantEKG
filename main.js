@@ -20,6 +20,7 @@ function get_collection_from_database()
     xmlHttp.send(null);
 }
 
+
 function load_function()
 {
 	// Load plant collection and associated plant info from database

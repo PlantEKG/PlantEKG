@@ -36,6 +36,7 @@ function toggle(showHideDiv){
 
     <div class="container">
 	<?php
+		session_start();
 		$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
 	// Open database "techview"
@@ -60,19 +61,23 @@ function toggle(showHideDiv){
 		echo "<p><b> Water: </b>"  . $plants_data_array[0][4] . "</p>";
 		echo "<p><b> Preferred Light: </b>" . $plants_data_array[0][5] . "</p>";
 		echo "</dl>";
+
+		$_SESSION['collection_plant'] = $plants_data_array[0][0];
+
 	?>
 	</div>
 	<button class="btn btn-small" type="button"><a href=index.php>Go Back</a></button>
-	<button class="btn btn-small" type="button"><a href="javascript:toggle('pot sizes')">add to collection</a></button><br><br>
-	<div id='pot sizes' style="display: none;">
-		<button type="button" id'large pot'><a href="javascript:toggle('add')">Large pot</a></button>
-		<button type="button" id='medium pot'><a href="javascript:toggle('add')">Medium pot</a></button>
-		<button type="button" id='small pot'><a href="javascript:toggle('add')">Small pot</a></button>
-		<br><br>
-		<div id='add' style="display: none;"><button class="btn btn-small" type="button">add</button><br><br></div>
+	<button class="btn btn-small" type="button"><a href="javascript:toggle('pot_sizes')">add to collection</a></button><br><br>
+	<div id='pot_sizes' style="display: none;">
+		<form method="POST" action="add_plant_to_collection.php">
+                       large pot: <input type="radio" id='large pot' value='large' name='pot_size'>
+                       medium pot: <input type="radio" id='medium pot' value='medium' name='pot_size'>
+                       small pot: <input type="radio" id='small pot' value ='small' name='pot_size'>
+                       Extra Info: <input type='textbox' name='other_info'>
+                       <br><br>
+                       <input type='submit' value='add'>
+               </form>
 	</div>
-	
-
 
 
 

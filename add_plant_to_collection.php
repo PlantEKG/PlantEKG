@@ -1,24 +1,27 @@
 <?php
 
+session_start();
 
-//$room_name = $_REQUEST['room_name'];
-// $room_coord_x = $_REQUEST['room_coord_x'];
-// $room_coord_y = $_REQUEST['room_coord_y'];
-//$floor = $_REQUEST['floor'];
 
-//$plant_id = $_REQUEST['plant_id'];
-$user_id = $_REQUEST['user_id'];
-$plant_id = $_REQUEST['plant_id'];
+
+$user_id = $_SESSION['collection_user'];
+$plant_id = $_SESSION['collection_plant'];
 $pot_size = $_REQUEST['pot_size'];
-//$other_info = $_REQUEST['other_info'];
-$last_water_date = date_create('11/11/2012');
-$next_water_date = $last_water_date->modify("+7 day");
-$last_water_date->format("Y-m-d");
-$next_water_date->format("Y-m-d");
+$other_info = $_REQUEST['other_info'];
+$last_water_date = date('Y-m-d');
+$next_water_date = date('Y-m-d', strtotime($last_water_date. ' + 7 days'));
+
+// echo $_SESSION['collection_user'];
+// echo $_SESSION['collection_plant'];
+// echo $_REQUEST['pot_size'];
+
+
+// echo $last_water_date;
+// echo $next_water_date;
 
 // $msg = "plant_id: " . $plant_id . "<br>plant_name: " . $plant_name . "<br>spacing: " . $spacing . "<br>feed: " . $feed ."<br>water: " . $water ."<br>preferred_light: " . $preferred_light . "<br>plant_url: " . $picture_url ."<br>other_info: " . $other_info;    
 
-// Open connection to DB
+//Open connection to DB
 $my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
 // Open database "techview"
@@ -41,7 +44,7 @@ $collection_column6 = 'other_info';
 	$collection_column6_type = 'varchar(255)';
 
 
-mysql_query("INSERT INTO " . $collection_table_name . " (" . $collection_column1 . ", " . $collection_column2 . ", " . $collection_column3 . ", " . $collection_column4 . ", " . $collection_column5. ", " . $collection_column6 . ") VALUES ('" . $user_id . "', '" . $plant_id . "', '" . $last_water_date . "', '" . $next_water_date . "', '" . $pot_size . "')");
+mysql_query("INSERT INTO " . $collection_table_name . " (" . $collection_column1 . ", " . $collection_column2 . ", " . $collection_column3 . ", " . $collection_column4 . ", " . $collection_column5. ", " . $collection_column6. ") VALUES ('" . $user_id . "', '" . $plant_id . "', '" . $last_water_date . "', '" . $next_water_date . "', '" . $pot_size . "', '" . $other_info . "')");
 
-// <script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
+//<script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
 ?>
