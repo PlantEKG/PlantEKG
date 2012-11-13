@@ -20,7 +20,18 @@ function get_collection_from_database()
     xmlHttp.send(null);
 }
 
+function add_plant_to_collection()
+{
+    $.ajax(
+        {
+               type: "POST",
+               url: "http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/add_plant_to_collection.php",
+               //data:  // data to send to above script page if any
+               cache: false,
 
+               success: "http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php"
+         });
+}
 function load_function()
 {
 	// Load plant collection and associated plant info from database

@@ -62,6 +62,15 @@ $plants_column7 = 'plant_url';
 $plants_column8 = 'other_info';
 	$plants_column8_type = 'varchar(255)';
 
+// User keys
+
+$user_key_table = 'user_keys';
+$user_key_column1 = 'user_id';
+	$user_key_column1_type = 'int NOT NULL references users(id)';
+$user_key_column2 = 'unique_id';
+	$user_key_column2_type = 'int NOT NULL'
+
+
 
 // Create the user table
 mysql_query('CREATE TABLE ' . $user_table_name . '(

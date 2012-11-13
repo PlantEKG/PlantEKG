@@ -36,6 +36,10 @@
 
 	session_start();
 
+	$_SESSION['collection_user'] = $_REQUEST['id'];
+	$current_user = $_REQUEST['id'];
+	//echo $current_user;
+
 	// Open connection to DB
 	$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
@@ -47,14 +51,14 @@
 
 	$collection_data_array = array();
 	// $collection_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE user_id = '1'");
-	$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id and collection.user_id='1'");
+	$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id and collection.user_id='" . $current_user . "'");
 	while($collection_data_hold = mysql_fetch_array($collection_data_query))
 	{
 		array_push($collection_data_array, $collection_data_hold);
 	}
 // 11 is the index for the picture
 	$numberOfPlants = count($collection_data_array);
-
+if($numberOfPlants > 0){
 	for ($ii = 0; $ii < $numberOfPlants; $ii++ )
 	{
 		echo "<div class='span4'>";
@@ -67,8 +71,13 @@
 		echo "</dl>";
 		echo "</div>";
 	}
+}
+else
+{
+	echo "You currently have no plants!";
+}
 
-	$_SESSION['collection_user'] = $collection_data_array[0][0];
+
 
 	//echo $_SESSION['collection_user'];
 

@@ -64,9 +64,12 @@ function toggle(showHideDiv){
 
 		$_SESSION['collection_plant'] = $plants_data_array[0][0];
 
+
+
+
 	?>
 	</div>
-	<button class="btn btn-small" type="button"><a href=index.php>Go Back</a></button>
+	<button class="btn btn-small" type="button"><a href='index.php'>Go Back</a></button>
 	<button class="btn btn-small" type="button"><a href="javascript:toggle('pot_sizes')">add to collection</a></button><br><br>
 	<div id='pot_sizes' style="display: none;">
 		<form method="POST" action="add_plant_to_collection.php">
