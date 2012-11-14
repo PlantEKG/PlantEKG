@@ -76,7 +76,8 @@
 		}
 
 		else {
-			echo "You currently have no plants!";
+			echo "<br><br>";
+			echo "You currently have no plants! <br><br><br>";
 		}
 
 		//echo $_SESSION['collection_user'];
