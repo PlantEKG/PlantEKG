@@ -42,10 +42,11 @@ function viewPlant(plant_id)
     plantWater = "<dt> Water </dt>" + "<dd>" + plantInfoArray[6] + "</dd>";
     plantLight = "<dt> Preferred Light </dt>" + "<dd>" + plantInfoArray[7] + "</dd>";
 
-    plantDescription = plantName  + "<br>" + plantPicture + "<br>" + plantInfo + "<br>" + plantWaterDate + "<br>" + plantSpacing + "<br>" + plantFeed + "<br>" + plantWater + "<br>" + plantLight;
+    plantDescription = "<table align='center'> <tr> <td>" + plantPicture + "</td> <td><dl class='dl-horizontal' style='float:right'>"+ plantName + plantInfo + plantWaterDate +plantSpacing + plantFeed +plantWater + plantLight + "</dl></td></table>";
     document.getElementById('largestContainer').innerHTML = "<br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button>";
 
 }
+
 
 function goHome()
 {
@@ -108,4 +109,15 @@ function getXMLHttp()
 function msg_from_ajax(message)
 {
     document.getElementById('test').innerHTML = message;
+}
+
+function toggle(showHideDiv){
+  var ele = document.getElementById(showHideDiv);
+  if(ele.style.display == "block") {
+        ele.style.display = "none";
+
+    }
+  else {
+    ele.style.display = "block";
+  }
 }
