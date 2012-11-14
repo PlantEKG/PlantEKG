@@ -94,6 +94,11 @@ else
 		<input type="submit" value="Submit">
 		</form>
 	<div>
+		<h3> Reminder </h3> <br>
+			<form action="mailform.php" method="POST">
+				enter your email<br><input type="text" name="email" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter email for reminders':this.value;" value="Enter email for reminders" size="40"/><br>
+				<input type="submit" value="Submit">
+			</form>
 	</div>
       <hr>
 

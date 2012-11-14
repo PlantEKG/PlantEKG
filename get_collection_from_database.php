@@ -1,6 +1,11 @@
 <?php
 
 // Open connection to DB
+
+session_start();
+
+$user_id = $_SESSION['collection_user'];
+
 $my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
 // Open database "techview"
@@ -10,7 +15,7 @@ mysql_select_db($database_name) or die(mysql_error()) ;
 $table_name='collection';
 
 $collection_data_array = array();
-$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id and collection.user_id='1'");
+$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id and collection.user_id='" . $user_id . "'");
 while($collection_data_hold = mysql_fetch_array($collection_data_query))
 {
 	array_push($collection_data_array, $collection_data_hold);
