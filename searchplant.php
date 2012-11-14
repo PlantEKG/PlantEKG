@@ -30,35 +30,39 @@
 	$database_name = 'plantekg';
 	mysql_select_db($database_name) or die(mysql_error()) ;
 
-	$table_name='plants';
+	$table_name='new_plants';
 	$lowercase_plant_name = strtolower($_GET['plant_name']);
 	$plants_data_array = array();
-	$plants_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE plant_name='" . $lowercase_plant_name . "'");
+	$plants_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE common_name='" . $lowercase_plant_name . "'");
 	
 	while($plants_data_hold = mysql_fetch_array($plants_data_query)) {
 		array_push($plants_data_array, $plants_data_hold);
 	}
 		echo "<br><br><br>";
 		echo "<table align='center'>";
-		echo "<tr><td> <img src= ". $plants_data_array[0][6] . "> </td>";
+		echo "<tr><td> <img src= ". $plants_data_array[0][13] . "> </td>";
 		echo "<td>";
-		echo "<h3> " . ucfirst($plants_data_array[0][1]) . "</h3>";
+		echo "<h3> " . ucfirst($plants_data_array[0][0]) . "</h3>";
 		echo "<dl class='dl-horizontal' style='float:right'>";
-		echo "<dt> Spacing: </dt> <dd>" . $plants_data_array[0][2] . "</dd>";
-		echo "<dt> Feed: </dt> <dd>" . $plants_data_array[0][3] . "</dd>";
-		echo "<dt> Water: </dt> <dd>"  . $plants_data_array[0][4] . "</dd>";
-		echo "<dt> Preferred Light: </dt> <dd>" . $plants_data_array[0][5] . "</dd>";
+		//echo "<dt> Latin Name: </dt> <dd>" . $plants_data_array[0][1] . "</dd>";
+		echo "<dt> Spacing: </dt> <dd>" . $plants_data_array[0][7] . "</dd>";
+		echo "<dt> Feed: </dt> <dd>" . $plants_data_array[0][8] . "</dd>";
+		echo "<dt> Water: </dt> <dd>"  . $plants_data_array[0][11] . "</dd>";
+		echo "<dt> Preferred Light: </dt> <dd>" . $plants_data_array[0][12] . "</dd>";
+		//echo "<dt> Height: </dt> <dd>" . $plants_data_array[0][6] . "</dd>";
+		//echo "<dt> Hardiness: </dt> <dd>" . $plants_data_array[0][5] . "</dd>";
+		//echo "<dt> Preferred Light: </dt> <dd>" . $plants_data_array[0][12] . "</dd>";
 		echo "</dl>";
 		echo "</td> </td>";
 		echo "</table>";
 
-		$_SESSION['collection_plant'] = $plants_data_array[0][0];
+		$_SESSION['collection_plant'] = $plants_data_array[0][15];
 	?>
 	</div>
 
 	<br><br>
 	<button class="btn btn-small" type="button" onclick="toggle('pot_sizes')">Add to Collection</button>
-	<button class="btn btn-small" type="button" onclick="parent.location='index.php?id=1'">Go Back</button><br><br>
+	<button class="btn btn-small" type="button" onclick="parent.location='index.php?id=<?php echo $_SESSION['collection_user']; ?>'">Go Back</button><br><br>
 
 	<div id='pot_sizes' style="display: none;">
 		<form method="POST" action="add_plant_to_collection.php">

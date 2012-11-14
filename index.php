@@ -50,28 +50,35 @@
 		$table_name='collection';
 
 		$collection_data_array = array();
-		$collection_data_query = mysql_query("SELECT * FROM collection,plants where plants.plant_id=collection.plant_id and collection.user_id='" . $current_user . "'");
+		$collection_data_query = mysql_query("SELECT * FROM collection join new_plants on collection.plant_id=new_plants.plant_id where collection.user_id='" . $current_user . "'");
 		while($collection_data_hold = mysql_fetch_array($collection_data_query)) {
 			array_push($collection_data_array, $collection_data_hold);
 		}
+
 		// 11 is the index for the picture
 		$numberOfPlants = count($collection_data_array);
-		if($numberOfPlants > 0) {
-			for ($ii = 0; $ii < $numberOfPlants; $ii++ ) {
+		if($numberOfPlants > 0) 
+		{
+			for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
+			{
 				echo "<div class='span4'>";
 				echo "<dl>";
-				echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
-				echo "<img src=". $collection_data_array[$ii][12] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
+				echo "<h3>" . $collection_data_array[$ii][6] . "</h3>";
+				echo "<img src=". $collection_data_array[$ii][19] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 				echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 				echo "</dl>";
 				echo "</div>";
+
+				//echo $collection_data_array[0][$ii] . "<br>";
 			}
 		}
+
 		else {
 			echo "You currently have no plants!";
 		}
+
 		//echo $_SESSION['collection_user'];
 		?>
     </div>
