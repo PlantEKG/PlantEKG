@@ -68,6 +68,9 @@
 				echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
+				echo "<form action='delete_plant.php' method='post'>";
+				echo "<button type='submit' name='plant_id' value='". $collection_data_array[$ii][1] ."'>Delete</button>";	
+				echo "</form>";
 				echo "</dl>";
 				echo "</div>";
 
