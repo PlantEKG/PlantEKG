@@ -40,7 +40,7 @@
 	}
 		echo "<br><br><br>";
 		echo "<table align='center'>";
-		echo "<tr><td> <img src= ". $plants_data_array[0][13] . "> </td>";
+		echo "<tr><td> <img class='rounded-corners' src= ". $plants_data_array[0][13] . "> </td>";
 		echo "<td>";
 		echo "<h3> " . ucfirst($plants_data_array[0][0]) . "</h3>";
 		echo "<dl class='dl-horizontal' style='float:right'>";

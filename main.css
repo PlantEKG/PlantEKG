@@ -3,10 +3,23 @@ body, html
 	margin: 0px;
 	height: 95%;
 	font-family: Helvetica, Arial, sans-serif;
-	text-align: center;
+	text-align: left;
+	/*background-image:url('img/PlantEKG-Landing-Page.png');*/
+	    background: no-repeat fixed 100% 100%;
+
+/*	background: #000 url('img/PlantEKG-Landing-Page.png') center fixed no-repeat;
+  -moz-background-size: cover;
+  background-size: cover;*/
 }
-
-
+/*html { 
+    background: url('img/PlantEKG-Landing-Page.png')
+        no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+*/
 #title
 {
 	color: yellow;
@@ -15,7 +28,17 @@ body, html
 	background: green;
 }
 
-#search_plants_container
+/*.bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5000;
+}*/
+
+#background
 {
-	margin: 0% 5% 0% 5%;
+	position: asbolute; z-index: -1;
+    background: no-repeat fixed 100% 100%;
 }

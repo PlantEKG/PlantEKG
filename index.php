@@ -30,7 +30,7 @@
     <br><br><br>
     <h3>My Plant Collection</h3>
 
-      <!-- row of columns -->
+      <!-- Generates the row of plants in the user's collection -->
      <div class="row" id='plantRow'>
 		<?php
 
@@ -82,20 +82,31 @@
 			echo "<br><br>";
 			echo "You currently have no plants! <br><br><br>";
 		}
-
+		echo "</div>";
 		//echo $_SESSION['collection_user'];
-		?>
-    </div>
+		$plant_name_data_array = array();
+		$plant_name_data_query = mysql_query("SELECT common_name FROM new_plants order by common_name");
+		while($plant_name_data_hold = mysql_fetch_array($plant_name_data_query)) {
+			array_push($plant_name_data_array, $plant_name_data_hold);
+		}
+		$numberOfPlantNames = count($plant_name_data_array);
 
-	<div id='search_plants'>
-		<h3>Find More Plants to Add to your Collection</h3>
-		<!-- <form action="add_plant.php" method="get"> -->
-		<!-- <form action="viewplant.php" method="get"> -->
-		<form action="searchplant.php" method="get">
-		Search for a plant name <br><input type="text" name="plant_name" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter name here...':this.value;" value="Enter name here..." size="40"/><br>
-		<input type="submit" value="Submit">
-		</form>
-	</div>
+		echo "<div id='search_plants'>";
+		echo "<h3>Find More Plants to Add to your Collection</h3>";
+		echo "<form id='searchPlant' action='searchplant.php' method='get'>";
+
+		echo "<select name='plant_name' onchange='this.form.submit();'>";
+		echo "<option value='initial'>Find your Plant Here</option>";
+
+		for ($ii = 0; $ii < $numberOfPlantNames; $ii++ ) 
+		{ 
+			echo "<option value='" . $plant_name_data_array[$ii][0] . "''>" . $plant_name_data_array[$ii][0] . "</option>";
+		}
+		echo "</select>";
+		echo "</form>";
+		echo "</div>";
+		?>
+
 
 	<div id='reminder'>
 		<h3> Reminder </h3>
@@ -110,6 +121,6 @@
       	<hr>
         <p>&copy; PlantEKG - EECS 394/405 2012</p>
       </footer>
-    </div> <!-- /largestcontainer -->
+    </div> <!-- /largestcontainer
 </body>
 </html>

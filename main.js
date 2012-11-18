@@ -20,11 +20,30 @@ function get_collection_from_database()
     xmlHttp.send(null);
 }
 
+function get_plant_name_from_database()
+{
+  var xmlHttp = getXMLHttp();
+
+    xmlHttp.onreadystatechange = function()
+    {
+
+        if(xmlHttp.readyState == 4)
+        {
+            var plant_name_string = xmlHttp.responseText;
+            plant_name_list = eval ("({'data_ii':" + plant_name_string  + "})");
+        }
+    }
+
+    xmlHttp.open("GET", 'get_plant_name_from_database.php', true);
+    xmlHttp.send(null);
+}
+
 
 function load_function()
 {
 	// Load plant collection and associated plant info from database
 	get_collection_from_database();
+  get_plant_name_from_database();
 }
 
 function viewPlant(plant_id) 
@@ -33,7 +52,7 @@ function viewPlant(plant_id)
     plantInfoArray = find_plant_in_collection(plant_id);
 
     plantName = "<dt> Plant Name </dt>" + "<dd>" + plantInfoArray[6] + "</dd>";
-    plantPicture = "<img src=" + plantInfoArray[19] + ">";
+    plantPicture = "<img class='rounded-corners' src=" + plantInfoArray[19] + ">";
 
     plantInfo = "<dt> Plant Information </dt>" + "<dd>" + plantInfoArray[5] + "</dd>";
     plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + plantInfoArray[3] + "</dd>";
@@ -43,9 +62,7 @@ function viewPlant(plant_id)
     plantLight = "<dt> Preferred Light </dt>" + "<dd>" + plantInfoArray[18] + "</dd>";
 
     plantDescription = "<table align='center'> <tr> <td>" + plantPicture + "</td> <td><dl class='dl-horizontal' style='float:right'>"+ plantName + plantInfo + plantWaterDate +plantSpacing + plantFeed +plantWater + plantLight + "</dl></td></table>";
-    document.getElementById('largestContainer').innerHTML = "<br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button>";
-
-
+    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button>";
 }
 
 
