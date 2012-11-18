@@ -2,14 +2,22 @@
 
 session_start();
 
+//Open connection to DB
+$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
+// Open database "techview"
+$database_name = 'plantekg';
+mysql_select_db($database_name) or die(mysql_error()) ;
 
 $user_id = $_SESSION['collection_user'];
 $plant_id = $_SESSION['collection_plant'];
 $pot_size = $_REQUEST['pot_size'];
 $other_info = $_REQUEST['other_info'];
+$query = mysql_query("SELECT avg_days FROM new_plants WHERE plant_id= '" . $plant_id . "'");
+$row =  mysql_fetch_array($query);
+$water_frequency = intval($row['avg_days']);
 $last_water_date = date('Y-m-d');
-$next_water_date = date('Y-m-d', strtotime($last_water_date. ' + 7 days'));
+$next_water_date = date('Y-m-d', strtotime($last_water_date. ' + ' . $water_frequency . ' days'));
 
 // echo $_SESSION['collection_user'];
 // echo $_SESSION['collection_plant'];
@@ -20,13 +28,6 @@ $next_water_date = date('Y-m-d', strtotime($last_water_date. ' + 7 days'));
 // echo $next_water_date;
 
 // $msg = "plant_id: " . $plant_id . "<br>plant_name: " . $plant_name . "<br>spacing: " . $spacing . "<br>feed: " . $feed ."<br>water: " . $water ."<br>preferred_light: " . $preferred_light . "<br>plant_url: " . $picture_url ."<br>other_info: " . $other_info;    
-
-//Open connection to DB
-$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
-
-// Open database "techview"
-$database_name = 'plantekg';
-mysql_select_db($database_name) or die(mysql_error()) ;
 
 // Column info for plants
 $collection_table_name = 'collection';
@@ -47,7 +48,7 @@ $collection_column6 = 'other_info';
 mysql_query("INSERT INTO " . $collection_table_name . " (" . $collection_column1 . ", " . $collection_column2 . ", " . $collection_column3 . ", " . $collection_column4 . ", " . $collection_column5. ", " . $collection_column6. ") VALUES ('" . $user_id . "', '" . $plant_id . "', '" . $last_water_date . "', '" . $next_water_date . "', '" . $pot_size . "', '" . $other_info . "')");
 
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
 //header( 'Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php' )
 //<script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
 ?>
