@@ -153,3 +153,13 @@ function toggle(showHideDiv){
     ele.style.display = "block";
   }
 }
+
+function validateForm()
+{
+var x=document.forms["addPlant"]["other_info"].value;
+if (x==null || x=="")
+  {
+  alert("Other info must be filled out");
+  return false;
+  }
+}

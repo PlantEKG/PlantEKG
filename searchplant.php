@@ -65,7 +65,7 @@
 	<button class="btn btn-small" type="button" onclick="parent.location='index.php?id=<?php echo $_SESSION['collection_user']; ?>'">Go Back</button><br><br>
 
 	<div id='pot_sizes' style="display: none;">
-		<form method="POST" action="add_plant_to_collection.php">
+		<form method="POST" name="addPlant" onsubmit="return validateForm()" action="add_plant_to_collection.php">
                        Small Pot: <input type="radio" id='large pot' value='large' name='pot_size'><br>
                        Medium Pot: <input type="radio" id='medium pot' value='medium' name='pot_size'><br>
                        Large Pot: <input type="radio" id='small pot' value ='small' name='pot_size'><br>
