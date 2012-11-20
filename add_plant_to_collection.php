@@ -45,10 +45,11 @@ $collection_column6 = 'other_info';
 	$collection_column6_type = 'varchar(255)';
 
 
+
 mysql_query("INSERT INTO " . $collection_table_name . " (" . $collection_column1 . ", " . $collection_column2 . ", " . $collection_column3 . ", " . $collection_column4 . ", " . $collection_column5. ", " . $collection_column6. ") VALUES ('" . $user_id . "', '" . $plant_id . "', '" . $last_water_date . "', '" . $next_water_date . "', '" . $pot_size . "', '" . $other_info . "')");
 
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
 //header( 'Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php' )
 //<script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
 ?>

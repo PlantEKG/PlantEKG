@@ -54,7 +54,6 @@
 		while($collection_data_hold = mysql_fetch_array($collection_data_query)) {
 			array_push($collection_data_array, $collection_data_hold);
 		}
-
 		// 11 is the index for the picture
 		$numberOfPlants = count($collection_data_array);
 		if($numberOfPlants > 0) 
@@ -63,16 +62,17 @@
 			{
 				echo "<div class='span4'>";
 				echo "<dl>";
-				echo "<h3>" . $collection_data_array[$ii][6] . "</h3>";
-				echo "<img src=". $collection_data_array[$ii][19] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
+				echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
+				echo "<img src=". $collection_data_array[$ii][20] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 				echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 				echo "<form action='delete_plant.php' method='post'>";
-				echo "<button type='submit' name='plant_id' value='". $collection_data_array[$ii][1] ."'>Delete</button>";	
+				echo "<button type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
 				echo "</form>";
 				echo "</dl>";
 				echo "</div>";
+				// echo $collection_data_array;
 
 				//echo $collection_data_array[0][$ii] . "<br>";
 			}
