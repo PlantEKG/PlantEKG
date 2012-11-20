@@ -24,5 +24,4 @@ while($collection_data_hold = mysql_fetch_array($collection_data_query))
 $collection_data_json = json_encode($collection_data_array);
 
 echo $collection_data_json;
-
 ?>

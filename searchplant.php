@@ -33,7 +33,7 @@
 	$table_name='new_plants';
 	$lowercase_plant_name = strtolower($_GET['plant_name']);
 	$plants_data_array = array();
-	$plants_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE common_name='" . $lowercase_plant_name . "'");
+	$plants_data_query = mysql_query("SELECT * FROM " . $table_name . " WHERE latin_name='" . $lowercase_plant_name . "'");
 	
 	while($plants_data_hold = mysql_fetch_array($plants_data_query)) {
 		array_push($plants_data_array, $plants_data_hold);

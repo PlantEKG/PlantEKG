@@ -85,7 +85,7 @@
 		echo "</div>";
 		//echo $_SESSION['collection_user'];
 		$plant_name_data_array = array();
-		$plant_name_data_query = mysql_query("SELECT common_name FROM new_plants order by common_name");
+		$plant_name_data_query = mysql_query("SELECT common_name,latin_name FROM new_plants order by common_name");
 		while($plant_name_data_hold = mysql_fetch_array($plant_name_data_query)) {
 			array_push($plant_name_data_array, $plant_name_data_hold);
 		}
@@ -100,13 +100,12 @@
 
 		for ($ii = 0; $ii < $numberOfPlantNames; $ii++ ) 
 		{ 
-			echo "<option value='" . $plant_name_data_array[$ii][0] . "''>" . $plant_name_data_array[$ii][0] . "</option>";
+			echo "<option value='" . $plant_name_data_array[$ii][1] . "''>" . $plant_name_data_array[$ii][0] . " - " . $plant_name_data_array[$ii][1] . "</option>";
 		}
 		echo "</select>";
 		echo "</form>";
 		echo "</div>";
 		?>
-
 
 	<div id='reminder'>
 		<h3> Reminder </h3>
