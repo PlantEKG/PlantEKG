@@ -5,7 +5,7 @@ session_start();
   $user_id = $_SESSION['collection_user'];
 
   // $to = $_REQUEST['email'];
-  $to = "allenz456@gmail.com";
+  $to = "brianambielli2007@u.northwestern.edu";
   $date = date('Y-m-d');
 
   // Open connection to DB
@@ -62,7 +62,7 @@ session_start();
 
   //echo $to;
 
-  header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
+  header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
 
 
 
