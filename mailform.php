@@ -5,7 +5,7 @@ session_start();
   $user_id = $_SESSION['collection_user'];
 
   // $to = $_REQUEST['email'];
-  $to = "brianambielli2007@u.northwestern.edu";
+  $to = "allenz456@gmail.com";
   $date = date('Y-m-d');
 
   // Open connection to DB
@@ -33,12 +33,12 @@ session_start();
     for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
     {
       // Name of plant 
-      // echo "<h3>" . $collection_data_array[$ii][6] . "</h3>";
-      // echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
-      // echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
+      echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
+      echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
+      echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][6] . "</dd>";
       if ($date == $collection_data_array[$ii][3])
       {
-        $waterInfo .= $collection_data_array[$ii][6] . " with description " . $collection_data_array[$ii][5] . "\r\n ";
+        $waterInfo .= $collection_data_array[$ii][7] . " with description " . $collection_data_array[$ii][5] . "\r\n ";
       } 
     }
   }
@@ -48,9 +48,9 @@ session_start();
   // echo $fakeDate;
 
 
-  $headers .= "Reply-To: PlantEKG <plantekg@ec2-107-20-111-184.compute-1.amazonaws.com>\r\n"; 
-  $headers .= "Return-Path: PlantEKG <plantekg@ec2-107-20-111-184.compute-1.amazonaws.com>\r\n"; 
-  $headers .= "From: PlantEKG <plantekg@ec2-107-20-111-184.compute-1.amazonaws.com>\r\n";
+  $headers .= "Reply-To: PlantEKG <plantekg@gmail.com>\r\n"; 
+  $headers .= "Return-Path: PlantEKG <plantekg@gmail.com>\r\n"; 
+  $headers .= "From: PlantEKG <plantekg@gmail.com>\r\n";
   $headers .= "Organization: PlantEKG\r\n";
   $headers .= "MIME-Version: 1.0\r\n";
   $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
@@ -62,7 +62,7 @@ session_start();
 
   //echo $to;
 
-  header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
+  // header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
 
 
 
