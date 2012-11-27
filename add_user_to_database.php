@@ -4,6 +4,22 @@ $name = $_REQUEST['name'];
 $email = $_REQUEST['email'];
 $phone = $_REQUEST['phone_number'];
 $password = $_REQUEST['password'];
+$hour = $_REQUEST['hour'];
+$minute = $_REQUEST['min'];
+$AMPM = $_REQUEST['AMPM'];
+
+$newhour = $hour + 6;
+
+if($AMPM == 'PM' && $hour != 12)
+{
+	$newhour = $newhour + 12;
+
+	if($newhour >= 24)
+	{
+		$newhour = $newhour - 24; 
+	}
+}
+
 $random = md5(sha1(time() + rand(0, time())));
   
 // Open connection to DB
@@ -25,13 +41,21 @@ $user_column4 = 'id';
 	$user_column4_type = 'INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (' . $user_column4 . ')';
 $user_column5 = 'password';
 	$user_column5_type = 'varchar(50)';
-$user_column6 = 'notification_type';
-	$user_column6_type = 'varchar(50)';
-$user_column7 = 'random';
-	$user_column7_type = 'varchar(255)';
+$user_column6 = 'random';
+	$user_column6_type = 'varchar(8)';
+$user_column7 = 'notification';
+	$user_column7_type = 'varchar(10)';
+$user_column8 = 'hour';
+	$user_column8_type = 'varchar(10)';
+$user_column9 = 'minute';
+	$user_column9_type = 'varchar(10)';
+$user_column10 = 'AMPM';
+	$user_column10_type = 'varchar(10)';
+
+$notification = 'Y';
 
 
-mysql_query("INSERT INTO " . $user_table_name . " (" . $user_column1 . ", " . $user_column2 . ", " . $user_column3 . ", " . $user_column5 . ", " . $user_column7 . ") VALUES ('" . $name . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $random . "')");
 
-// <script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
+mysql_query("INSERT INTO " . $user_table_name . " (" . $user_column1 . ", " . $user_column2 . ", " . $user_column3 . ", " . $user_column5 . ", " . $user_column6 . ", " . $user_column7 . ",  " . $user_column8 . ", " . $user_column9 . ", " . $user_column10 .") VALUES ('" . $name . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $random . "', '" . $notification . "', '" . $hour . "', '" . $minute . "', '" . $AMPM . "')");
+
 ?>
