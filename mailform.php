@@ -4,8 +4,7 @@ session_start();
 
   $user_id = $_SESSION['collection_user'];
 
-  // $to = $_REQUEST['email'];
-  $to = "allenzeng2014@u.northwestern.edu";
+  $to = $_REQUEST['email'];
   $date = date('Y-m-d');
 
   // Open connection to DB
