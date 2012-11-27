@@ -62,7 +62,7 @@
 
 	<br><br>
 	<button class="btn btn-small" type="button" onclick="toggle('pot_sizes')">Add to Collection</button>
-	<button class="btn btn-small" type="button" onclick="parent.location='index.php?id=<?php echo $_SESSION['collection_user']; ?>'">Go Back</button><br><br>
+	<button class="btn btn-small" type="button" onclick="parent.location='index.php?random=<?php echo $_SESSION['random']; ?>'">Go Back</button><br><br>
 
 	<div id='pot_sizes' style="display: none;">
 		<form method="POST" name="addPlant" onsubmit="return validateForm()" action="add_plant_to_collection.php">
