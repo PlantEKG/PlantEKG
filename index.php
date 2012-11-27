@@ -34,6 +34,11 @@
      <div class="row" id='plantRow'>
 		<?php
 
+		// if (0){
+		// 	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/loginPage.php",TRUE,303);
+		// }
+		
+		// else{
 		$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
 		// Open database "plantekg"
@@ -41,8 +46,8 @@
 		mysql_select_db($database_name) or die(mysql_error()) ;
 
 		session_start();
-		$table_name2 = 'users';
 		$random = $_REQUEST['random'];
+		$table_name2 = 'users';
 		$query = mysql_query("SELECT id FROM " . $table_name2 . " WHERE random='" . $random . "'");
 		$array = mysql_fetch_array($query);
 		$user_id = $array['id'];
@@ -114,9 +119,13 @@
 		echo "<div id='reminder'>
 		<h3> View Watering Reminders </h3>		
 			<button class='btn btn-small' onclick='showReminders()' type='button'>Click to View</button>
-	</div>"
+		</div>"
+		// }
 		?>
-
+		<br><br><br><br><br><br>
+		<form action="loginPage.php">
+		<input type="submit" value="Logout" class='btn btn-small'>
+		</form>
 <!-- 	<div id='reminder'>
 		<h3> Reminder </h3>
 			<form action="mailform.php" method="POST">
