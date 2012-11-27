@@ -15,7 +15,7 @@ mysql_select_db($database_name) or die(mysql_error()) ;
 $table_name='collection';
 
 $collection_data_array = array();
-$collection_data_query = mysql_query("SELECT * FROM collection join new_plants on new_plants.plant_id=collection.plant_id where collection.user_id='" . $user_id . "'");
+$collection_data_query = mysql_query("SELECT * FROM collection join new_plants on new_plants.plant_id=collection.plant_id where collection.user_id='" . $user_id . "' order by next_water_date");
 while($collection_data_hold = mysql_fetch_array($collection_data_query))
 {
 	array_push($collection_data_array, $collection_data_hold);
