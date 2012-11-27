@@ -72,7 +72,7 @@
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 				echo "<form action='delete_plant.php' method='post'>";
-				echo "<button type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
+				echo "<button class='btn btn-small' type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
 				echo "</form>";
 				echo "</dl>";
 				echo "</div>";
@@ -110,15 +110,20 @@
 		echo "</select>";
 		echo "</form>";
 		echo "</div>";
+
+		echo "<div id='reminder'>
+		<h3> View Watering Reminders </h3>		
+			<button class='btn btn-small' onclick='showReminders()' type='button'>Click to View</button>
+	</div>"
 		?>
 
-	<div id='reminder'>
+<!-- 	<div id='reminder'>
 		<h3> Reminder </h3>
 			<form action="mailform.php" method="POST">
 				Enter your email<br><input type="text" name="email" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter email for reminders':this.value;" value="Enter email for reminders" size="40"/><br>
 				<input type="submit" value="Submit">
 			</form>
-	</div>
+	</div> -->
   </div>
       
       <footer>
