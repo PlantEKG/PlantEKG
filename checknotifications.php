@@ -16,37 +16,47 @@
 
 		$numberOfUsers = count($user_data_array);
 
+		$hour = date('h');
+		$minute= date('i');
+
+
+
 		for ($ii = 0; $ii < $numberOfUsers; $ii++ ) 
 			{
-				// echo "<div class='span4'>";
-				// echo "<dl>";
-				// echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
-				// echo "<img src=". $collection_data_array[$ii][20] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
-				// echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
-				// echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
-				// //echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
-				// echo "<form action='delete_plant.php' method='post'>";
-				// echo "<button type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
-				// echo "</form>";
-				// echo "</dl>";
-				// echo "</div>";
+				$usrhour =  $user_data_array[$ii][7];
+				$AMPM = $user_data_array[$ii][9];
+				$usrminute = $user_data_array[$ii][8];
+				$user_id = $user_data_array[$ii][4];
+				$email = $user_data_array[$ii][1];
 
-				echo $user_data_array[$ii][0];
-				echo $user_data_array[$ii][1];
-				echo $user_data_array[$ii][2];
-				echo $user_data_array[$ii][3];
-				echo $user_data_array[$ii][4];
-				echo $user_data_array[$ii][5];
-				echo $user_data_array[$ii][6];
-				echo $user_data_array[$ii][7];
-				echo $user_data_array[$ii][8];
-				echo $user_data_array[$ii][9];
+				$newhour = $usrhour + 6;
+
+				if($AMPM == 'PM' && $usrhour != 12)
+				{
+						$newhour = $newhour + 12;
+
+					if($newhour >= 24)
+					{
+						$newhour = $newhour - 24; 
+					}
+				}
+				
+				if($user_data_array[$ii][6] == 'Y' && $hour == $newhour && $minute == $usrminute)
+				{
+
+						header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/mailform.php?id=" . $user_id . "&email=" . $email . "",TRUE,303);
+					
+				}
+
+				echo $user_data_array[$ii][4]; //id
+				echo $user_data_array[$ii][5]; //random
+				echo $user_data_array[$ii][6]; //notification (Y or N) 
+				echo $user_data_array[$ii][7]; //hour
+				echo $user_data_array[$ii][8]; //minute
+				echo $user_data_array[$ii][9]; //AM/PM
 				// echo $collection_data_array;
 
 				//echo $collection_data_array[0][$ii] . "<br>";
 			}
-
-
-
 
 ?>

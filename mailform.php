@@ -2,9 +2,10 @@
 
 session_start();
 
-  $user_id = $_SESSION['collection_user'];
+  // $user_id = $_SESSION['collection_user'];
 
-  $to = $_REQUEST['email'];
+  $user_id = $_REQUEST['id'];
+  $to =  $_REQUEST['email'];
   $date = date('Y-m-d');
 
   // Open connection to DB
@@ -27,16 +28,11 @@ session_start();
   $fakeDate = date('2012-12-03');
 
   $waterDateInfo = "You have to water the following plants TODAY (" . $date . "): \r\n ";
-  $waterInfo = "";
+  $waterInfo = "hi";
   if($numberOfPlants > 0) 
   {
     for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
     {
-      // Name of plant 
-      // echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
-      // echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
-      // echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][6] . "</dd>";
-
       if ($date == $collection_data_array[$ii][3])
       {
         $waterInfo .= $collection_data_array[$ii][7] . " with description " . $collection_data_array[$ii][5] . "\r\n ";
