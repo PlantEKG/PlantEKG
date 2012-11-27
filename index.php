@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (!(isset($_REQUEST['random'])))
+if ($_REQUEST['random'] == "")
 {
-	echo "not logged in";
+	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/loginPage.php",TRUE,303);
 }
 else
 {
@@ -124,7 +124,10 @@ echo "<!DOCTYPE HTML>
 		<h3> View Watering Reminders </h3>		
 			<button class='btn btn-small' onclick='showReminders()' type='button'>Click to View</button>
 	</div>
-
+		<br><br><br><br><br><br>
+		<form action='loginPage.php'>
+		<input type='submit' value='Logout' class='btn btn-small'>
+		</form>
   </div>
       
       <footer>
