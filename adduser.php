@@ -19,25 +19,39 @@
 		<fieldset>
 			<legend>Create New Account</legend>
 			<label for='username' >Username:</label>
-			<input type='text' name='name' id='name'  maxlength="50" />
+			<input type='text' name='name' id='name'/>
 			<label for='email' >Email:</label>
-			<input type='text' name='email' id='email' maxlength="50" />
+			<input type='text' name='email' id='email'/>
 			<label for='phone_number' >Phone Number:</label>
-			<input type='text' name='phone_number' id='phone_number'  maxlength="50" />
+			<input type='text' name='phone_number' id='phone_number'/>
 			<label for='password' >Password:</label>
-			<input type='text' name='password' id='password' maxlength="50" />
-			<br>
-			  Min:
-             <select name = "min">
+			<input type='text' name='password' id='password'/>
+			<br>Notification Time<br>
+			 Hour:<select name = "hour" style="width: 60px">
+               <option value = 1>1</option>
+               <option value = 2>2</option>
+               <option value = 3>3</option>
+               <option value = 4>4</option> 
+               <option value = 5>5</option>
+               <option value = 6>6</option>
+               <option value = 7>7</option>
+               <option value = 8>8</option>
+               <option value = 9>9</option>
+               <option value = 10>10</option>
+               <option value = 11>11</option>
+               <option value = 12>12</option>
+             </select>
+			  Min:<select name = "min" style="width: 60px">
                <option value = 0>00</option>
                <option value = 15>15</option>
                <option value = 30>30</option>
                <option value = 45>45</option>
              </select>
-             AM/PM: <select name = "AMPM">
+             AM/PM:<select name = "AMPM" style="width: 60px">
                <option value = "AM">AM</option>
                <option value = "PM">PM</option>
-           </select>
+           	</select>
+           	<br>
 			<input type='submit' name='Submit' value='Submit' />
 		</fieldset>
 </form>
