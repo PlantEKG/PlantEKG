@@ -13,6 +13,6 @@ $query = mysql_query("SELECT random FROM " . $table_name . " WHERE email='" . $u
 $array = mysql_fetch_array($query);
 $random = $array['random'];
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 
 ?>
