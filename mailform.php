@@ -65,6 +65,6 @@ if ($waterInfo != "")
   mail($to, $subject, $message, $headers);
 }
 
-  header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
+  // header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?id=" . $user_id . "",TRUE,303);
 
 ?>

@@ -29,13 +29,12 @@
 				$usrhour =  $user_data_array[$ii][7];
 				$AMPM = $user_data_array[$ii][9];
 				$usrminute = $user_data_array[$ii][8];
-				$user_id = $user_data_array[$ii][4];
+				$user_id = $user_data_array[$ii][3];
 				$email = $user_data_array[$ii][1];
+				$usernote = $user_data_array[$ii][6];
 
-				$usrhour = 5;
-				$usrminute = 49;
-				$usernote = 'Y';
 				$newhour = $usrhour + 6;
+
 
 				if($AMPM == 'PM' && $usrhour != 12)
 				{
@@ -47,18 +46,17 @@
 					}
 				}
 
-
-
 				if($usernote == 'Y' && $hour == $newhour && $minute == $usrminute)
 				{
 
-						header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/mailform.php?id=" . $user_id . "&email=" . $email . "",TRUE,303);
+					header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/mailform.php?id=" . $user_id . "&email=" . $email . "",TRUE,303);
 					
 				}
-				echo $newhour;
-				echo $email;
-				echo $usrminute;
-				// echo $user_data_array[$ii][4]; //id
+
+				// echo $newhour;
+				// echo $email;
+				// echo $usrminute;
+				// echo $user_data_array[$ii][3]; //id
 				// echo $user_data_array[$ii][5]; //random
 				// echo $user_data_array[$ii][6]; //notification (Y or N) 
 				// echo $user_data_array[$ii][7]; //hour
