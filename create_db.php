@@ -21,10 +21,16 @@ $user_column4 = 'id';
 	$user_column4_type = 'INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (' . $user_column4 . ')';
 $user_column5 = 'password';
 	$user_column5_type = 'varchar(50)';
-$user_column6 = 'notification_type';
-	$user_column6_type = 'varchar(50)';
-$user_column7 = 'random';
-	$user_column7_type = 'varchar(255)';
+$user_column6 = 'random';
+	$user_column6_type = 'varchar(8)';
+$user_column7 = 'notification';
+	$user_column7_type = 'varchar(10)';
+$user_column8 = 'hour';
+	$user_column8_type = 'varchar(10)';
+$user_column9 = 'minute';
+	$user_column9_type = 'varchar(10)';
+$user_column10 = 'AMPM';
+	$user_column10_type = 'varchar(10)';
 
 
 // Column info for collection
@@ -42,7 +48,9 @@ $collection_column5 = 'pot_size';
 $collection_column6 = 'other_info';
 	$collection_column6_type = 'varchar(255)';
 $collection_column7 = 'collection_plant_id';
-	$collection_column7_type = 'INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (' . $collection_column7 . ')';	
+	$collection_column7_type = 'INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (' . $collection_column7 . ')';
+$collection_column8 = 'avg_days';
+	$collection_column8_type = 'varchar(10)';	
 
 
 // Column info for plants
@@ -108,7 +116,10 @@ mysql_query('CREATE TABLE IF NOT EXISTS ' . $user_table_name . '(
 ' . $user_column4 . ' ' . $user_column4_type . ',
 ' . $user_column5 . ' ' . $user_column5_type . ',
 ' . $user_column6 . ' ' . $user_column6_type . ',
-' . $user_column7 . ' ' . $user_column7_type . ')');
+' . $user_column7 . ' ' . $user_column7_type . ',
+' . $user_column8 . ' ' . $user_column8_type . ',
+' . $user_column9 . ' ' . $user_column9_type . ',
+' . $user_column10 . ' ' . $user_column10_type . ')');
 
 // Create the Collection table
 mysql_query('CREATE TABLE IF NOT EXISTS ' . $collection_table_name . '(
@@ -118,7 +129,8 @@ mysql_query('CREATE TABLE IF NOT EXISTS ' . $collection_table_name . '(
 ' . $collection_column4 . ' ' . $collection_column4_type . ',
 ' . $collection_column5 . ' ' . $collection_column5_type . ',
 ' . $collection_column6 . ' ' . $collection_column6_type . ',
-' . $collection_column7 . ' ' . $collection_column7_type . ')');
+' . $collection_column7 . ' ' . $collection_column7_type . ',
+' . $collection_column8 . ' ' . $collection_column8_type . ')');
 
 // Create the plants table
 mysql_query('CREATE TABLE IF NOT EXISTS ' . $plant_table_name . '(

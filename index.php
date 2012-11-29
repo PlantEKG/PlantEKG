@@ -114,7 +114,7 @@ echo "<!DOCTYPE HTML>
 		echo "<select name='plant_name' onchange='this.form.submit();'>";
 		echo "<option value='initial'>Find your Plant Here</option>";
 
-		for ($ii = 0; $ii < $numberOfPlantNames; $ii++ ) 
+		for ($ii = 0; $ii < $numberOfPlantNames; $ii++) 
 		{ 
 			echo "<option value='" . $plant_name_data_array[$ii][1] . "''>" . $plant_name_data_array[$ii][0] . " - " . $plant_name_data_array[$ii][1] . "</option>";
 		}

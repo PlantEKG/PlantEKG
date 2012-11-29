@@ -28,7 +28,7 @@ session_start();
   $fakeDate = date('2012-12-03');
 
   $waterDateInfo = "You have to water the following plants TODAY (" . $date . "): \r\n ";
-  $waterInfo = "hi";
+  $waterInfo = "";
   if($numberOfPlants > 0) 
   {
     for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 

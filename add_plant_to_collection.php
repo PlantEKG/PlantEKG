@@ -18,7 +18,7 @@ $query = mysql_query("SELECT avg_days FROM new_plants WHERE plant_id= '" . $plan
 $row =  mysql_fetch_array($query);
 $water_frequency = intval($row['avg_days']);
 $last_water_date = date('Y-m-d');
-$next_water_date = date('Y-m-d', strtotime($last_water_date. ' + ' . $water_frequency . ' days'));
+$next_water_date = date('Y-m-d', strtotime($last_water_date . ' + ' . $water_frequency . ' days'));
 
 // echo $_SESSION['collection_user'];
 // echo $_SESSION['collection_plant'];
@@ -44,13 +44,16 @@ $collection_column5 = 'pot_size';
 	$collection_column5_type = 'varchar(50)';
 $collection_column6 = 'other_info';
 	$collection_column6_type = 'varchar(255)';
+$collection_column7 = 'collection_plant_id';
+
+$collection_column8 = 'avg_days';
+	$collection_column8_type = 'varchar(10)';
 
 
+mysql_query("INSERT INTO " . $collection_table_name . " (" . $collection_column1 . ", " . $collection_column2 . ", " . $collection_column3 . ", " . $collection_column4 . ", " . $collection_column5. ", " . $collection_column6. ", " . $collection_column8 . ") VALUES ('" . $user_id . "', '" . $plant_id . "', '" . $last_water_date . "', '" . $next_water_date . "', '" . $pot_size . "', '" . $other_info . "', '" . $water_frequency . "')");
 
-mysql_query("INSERT INTO " . $collection_table_name . " (" . $collection_column1 . ", " . $collection_column2 . ", " . $collection_column3 . ", " . $collection_column4 . ", " . $collection_column5. ", " . $collection_column6. ") VALUES ('" . $user_id . "', '" . $plant_id . "', '" . $last_water_date . "', '" . $next_water_date . "', '" . $pot_size . "', '" . $other_info . "')");
 
-
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 //header( 'Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php' )
 //<script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
 ?>
