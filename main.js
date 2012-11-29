@@ -65,6 +65,21 @@ function viewPlant(plant_id)
     document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button>";
 }
 
+function editPlant(plant_id) 
+{
+  oldHtml = document.getElementById('largestContainer').innerHTML;
+    plantInfoArray = find_plant_in_collection(plant_id);
+
+    plantName = "<dt> Plant Name </dt>" + "<dd>" + plantInfoArray[6] + "</dd>";
+    plantPicture = "<img class='rounded-corners' src=" + plantInfoArray[19] + ">";
+
+    plantInfo = "<dt> Plant Information </dt>" + "<dd>" + plantInfoArray[5] + " <button class='btn btn-small' type='button' onclick='toggle(&quot;other_info&quot;)'>edit</button></dd><div id='other_info' style='display: none;'><form method='POST' name='editInfo' action='editOtherInfo.php'>New Info:<input type='textbox' name='other_info'><input type='submit' value='change'></form></div>";
+    plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + plantInfoArray[3] + "</dd>";
+    plantWater = "<dt> Water Frequency </dt>" + "<dd>Every " + plantInfoArray[20] + "days</dd>";
+
+    plantDescription = "<table align='center'> <tr> <td>" + plantPicture + "</td> <td><dl class='dl-horizontal' style='float:right'>"+ plantName + plantInfo + plantWaterDate +plantWater +"</dl></td></table>";
+    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><form action='delete_plant.php' method='post'><button class='btn btn-small' type='submit' name='collection_plant_id' value='"+ plantInfoArray[22] +"'>Delete Plant</button></form>";
+}
 
 function goHome()
 {
@@ -101,6 +116,7 @@ function find_plant_in_collection(plant_id)
             plantArray.push(collection_list.data_ii[plant_ii].image); //19
             plantArray.push(collection_list.data_ii[plant_ii].avg_days); //20
             plantArray.push(collection_list.data_ii[plant_ii].plant_id); //21
+            plantArray.push(collection_list.data_ii[plant_ii].collection_plant_id); //22 
         }
     }
     return plantArray;
