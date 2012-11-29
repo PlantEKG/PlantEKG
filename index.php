@@ -3,7 +3,7 @@ session_start();
 
 if ($_REQUEST['random'] == "")
 {
-	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/loginPage.php",TRUE,303);
+	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/loginPage.php",TRUE,303);
 }
 else
 {
@@ -78,13 +78,14 @@ echo "<!DOCTYPE HTML>
 				echo "<div class='span4'>";
 				echo "<dl>";
 				echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
-				echo "<img src=". $collection_data_array[$ii][20] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
+				echo "<img src=". $collection_data_array[$ii][21] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 				echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
-				echo "<form action='delete_plant.php' method='post'>";
-				echo "<button class='btn btn-small' type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
-				echo "</form>";
+				echo "<button class='btn btn-small' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .")'>Edit</button>";
+				// echo "<form action='delete_plant.php' method='post'>";
+				// echo "<button class='btn btn-small' type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
+				// echo "</form>";
 				echo "</dl>";
 				echo "</div>";
 
