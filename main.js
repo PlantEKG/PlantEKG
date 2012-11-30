@@ -173,8 +173,15 @@ function toggle(showHideDiv){
 function validateForm()
 {
 var x=document.forms["addPlant"]["other_info"].value;
-var y=document.forms["addPlant"]["pot_size"].value;
-if (x==null || x=="" || y==null)
+var radioObj = document.addPlant.pot_size;
+var y = 0;
+for(var i=0; i<radioObj.length; i++) {
+    if( radioObj[i].checked ) {
+        y = 1; 
+    }
+}
+
+if (x==null || x=="" || y ==0)
   {
   alert("All fields must be filled out");
   return false;
