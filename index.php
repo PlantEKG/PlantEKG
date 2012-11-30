@@ -3,10 +3,12 @@ session_start();
 
 if ($_REQUEST['random'] == "")
 {
-	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/loginPage.php",TRUE,303);
+	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/loginPage.php",TRUE,303);
 }
 else
 {
+	$random = $_REQUEST['random'];
+	$_SESSION['random'] = $random;
 echo "<!DOCTYPE HTML>
 <html>
 <head>
@@ -27,8 +29,11 @@ echo "<!DOCTYPE HTML>
 </head>
 <body>
  <div class='navbar navbar-inverse navbar-fixed-top'>
-      <div class='navbar-inner'>
-          <a class='brand' href='index.php' >PlantEKG</a>
+      <div class='navbar-inner'>";
+
+    	$link = "index.php?random=" . $random;
+      	$onclick = "onclick=\"parent.location='" . $link . "'\"";
+        echo "<a class='brand'" . $onclick . "> PlantEKG</a>
       </div>
 </div>
 
@@ -51,8 +56,7 @@ echo "<!DOCTYPE HTML>
 
 		// session_start();
 		$table_name2 = 'users';
-		$random = $_REQUEST['random'];
-		$_SESSION['random'] = $random;
+
 
 		$query = mysql_query("SELECT id FROM " . $table_name2 . " WHERE random='" . $random . "'");
 		$array = mysql_fetch_array($query);
