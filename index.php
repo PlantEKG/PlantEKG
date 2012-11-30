@@ -77,7 +77,7 @@ echo "<!DOCTYPE HTML>
 			{
 				echo "<div class='span4'>";
 				echo "<dl>";
-				echo "<h3>" . $collection_data_array[$ii][7] . "</h3>";
+				echo "<h3>" . $collection_data_array[$ii][8] . "</h3>";
 				echo "<img src=". $collection_data_array[$ii][21] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 				echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
