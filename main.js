@@ -78,7 +78,7 @@ function editPlant(plant_id)
     plantWater = "<dt> Water Frequency </dt>" + "<dd>Every " + plantInfoArray[20] + "days</dd>";
 
     plantDescription = "<table align='center'> <tr> <td>" + plantPicture + "</td> <td><dl class='dl-horizontal' style='float:right'>"+ plantName + plantInfo + plantWaterDate +plantWater +"</dl></td></table>";
-    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><form action='delete_plant.php' method='post'><button class='btn btn-small' type='submit' name='collection_plant_id' value='"+ plantInfoArray[22] +"'>Delete Plant</button></form>";
+    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br><br><form action='delete_plant.php' method='post'><button class='btn btn-small' type='submit' name='collection_plant_id' value='"+ plantInfoArray[22] +"'>Delete Plant</button></form><br><br><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='1'>Add a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='0'>Subtract a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form>";
 }
 
 function goHome()
@@ -116,7 +116,7 @@ function find_plant_in_collection(plant_id)
             plantArray.push(collection_list.data_ii[plant_ii].image); //19
             plantArray.push(collection_list.data_ii[plant_ii].avg_days); //20
             plantArray.push(collection_list.data_ii[plant_ii].plant_id); //21
-            plantArray.push(collection_list.data_ii[plant_ii].collection_plant_id); //22 
+            plantArray.push(collection_list.data_ii[plant_ii].collection_plant_id); //22
         }
     }
     return plantArray;
@@ -202,7 +202,7 @@ function showReminders()
   plantWaterTable = "<table align='center'>";
  for(var ii = 0; ii < collection_list.data_ii.length; ii++)
  {
-    plantPicture = "<tr> <td> <img class='img-rounded' src=" + collection_list.data_ii[ii][21] + ">";
+    plantPicture = "<tr> <td> <img class='img-rounded' src=" + collection_list.data_ii[ii][21] + "><br><br>";
     plantWaterTable += plantPicture;
     plantWaterTable += "</td> <td><dl class='dl-horizontal' style='float:right'>";
     plantName = "<dt> Plant Name </dt>" + "<dd>" + collection_list.data_ii[ii][8] + "</dd>";
