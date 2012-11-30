@@ -201,10 +201,10 @@ function showReminders()
   plantWaterTable = "<table align='center'>";
  for(var ii = 0; ii < collection_list.data_ii.length; ii++)
  {
-    plantPicture = "<tr> <td> <img class='img-rounded' src=" + collection_list.data_ii[ii][20] + ">";
+    plantPicture = "<tr> <td> <img class='img-rounded' src=" + collection_list.data_ii[ii][21] + ">";
     plantWaterTable += plantPicture;
     plantWaterTable += "</td> <td><dl class='dl-horizontal' style='float:right'>";
-    plantName = "<dt> Plant Name </dt>" + "<dd>" + collection_list.data_ii[ii][7] + "</dd>";
+    plantName = "<dt> Plant Name </dt>" + "<dd>" + collection_list.data_ii[ii][8] + "</dd>";
     plantDesc = "<dt> Plant Description </dt>" + "<dd>" + collection_list.data_ii[ii][5] + "</dd>";
     plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + collection_list.data_ii[ii][3] + "</dd>";
     plantWaterTable += plantName + plantDesc + plantWaterDate + "</dl></td>";
