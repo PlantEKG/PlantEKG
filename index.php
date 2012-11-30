@@ -69,7 +69,7 @@ echo "<!DOCTYPE HTML>
 		$table_name='collection';
 
 		$collection_data_array = array();
-		$collection_data_query = mysql_query("SELECT * FROM collection join new_plants on collection.plant_id=new_plants.plant_id where collection.user_id='" . $current_user . "'");
+		$collection_data_query = mysql_query("SELECT * FROM collection join new_plants on collection.plant_id=new_plants.plant_id where collection.user_id='" . $current_user . "' group by common_name");
 		while($collection_data_hold = mysql_fetch_array($collection_data_query)) {
 			array_push($collection_data_array, $collection_data_hold);
 		}
