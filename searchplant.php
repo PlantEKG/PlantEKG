@@ -1,29 +1,35 @@
-<!DOCTYPE HTML>
+	<?php
+			session_start();
+
+	$random = $_SESSION['random'];
+	echo "<!DOCTYPE HTML>
 <html>
 <head>
 <title>Plant EKG</title>
 
 <!-- CSS FILE -->
-<link type="text/css" rel="stylesheet" href="main.css">
-<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link type='text/css' rel='stylesheet' href='main.css'>
+<link href='css/bootstrap.css' rel='stylesheet' media='screen'>
 
 <!-- JAVASCRIPT FILE -->
-<script type="text/javascript" src="main.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type='text/javascript' src='main.js'></script>
+<script src='js/bootstrap.js'></script>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
 
 </head>
 <body>
-	 <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-          <a class="brand" href="index.php" >PlantEKG</a>
+	 <div class='navbar navbar-inverse navbar-fixed-top'>
+      <div class='navbar-inner'>";
+
+      	 $link = "index.php?random=" . $random;
+      	$onclick = "onclick=\"parent.location='" . $link . "'\"";
+        echo "<a class='brand'" . $onclick . "> PlantEKG</a>
       </div>
     </div>
 
 
-    <div class="container">
-	<?php
-		session_start();
+    <div class='container'>";
+
 		$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
 
 	// Open database "techview"
@@ -66,12 +72,14 @@
 
 	<div id='pot_sizes' style="display: none;">
 		<form method="POST" name="addPlant" onsubmit="return validateForm()" action="add_plant_to_collection.php">
-                       Small Pot: <input type="radio" id='large pot' value='large' name='pot_size'><br>
-                       Medium Pot: <input type="radio" id='medium pot' value='medium' name='pot_size'><br>
-                       Large Pot: <input type="radio" id='small pot' value ='small' name='pot_size'><br>
-                       Extra Info: <input type='textbox' name='other_info'>
-                       <br><br>
-                       <input type='submit' value='add'>
+
+					Size of plant pot<br>
+                	Small: <input type="radio" id='large pot' value='large' name='pot_size'><br>
+                    Medium: <input type="radio" id='medium pot' value='medium' name='pot_size'><br>
+                    Large: <input type="radio" id='small pot' value ='small' name='pot_size'><br>
+                    Extra Info (Required) : <input type='textbox' name='other_info'>
+                    <br><br>
+                    <input type='submit' value='add'>
                </form>
 	</div>
 

@@ -173,9 +173,10 @@ function toggle(showHideDiv){
 function validateForm()
 {
 var x=document.forms["addPlant"]["other_info"].value;
-if (x==null || x=="")
+var y=document.forms["addPlant"]["pot_size"].value;
+if (x==null || x=="" || y==null)
   {
-  alert("Other info must be filled out");
+  alert("All fields must be filled out");
   return false;
   }
 }
