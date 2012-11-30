@@ -72,12 +72,14 @@
 
 	<div id='pot_sizes' style="display: none;">
 		<form method="POST" name="addPlant" onsubmit="return validateForm()" action="add_plant_to_collection.php">
-                       Small Pot: <input type="radio" id='large pot' value='large' name='pot_size'><br>
-                       Medium Pot: <input type="radio" id='medium pot' value='medium' name='pot_size'><br>
-                       Large Pot: <input type="radio" id='small pot' value ='small' name='pot_size'><br>
-                       Extra Info: <input type='textbox' name='other_info'>
-                       <br><br>
-                       <input type='submit' value='add'>
+
+					Size of plant pot<br>
+                	Small: <input type="radio" id='large pot' value='large' name='pot_size'><br>
+                    Medium: <input type="radio" id='medium pot' value='medium' name='pot_size'><br>
+                    Large: <input type="radio" id='small pot' value ='small' name='pot_size'><br>
+                    Extra Info (Required) : <input type='textbox' name='other_info'>
+                    <br><br>
+                    <input type='submit' value='add'>
                </form>
 	</div>
 
