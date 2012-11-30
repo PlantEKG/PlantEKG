@@ -17,18 +17,16 @@ if($delta)
 	$new_water_date = date('Y-m-d', strtotime($next_water_date . '+1 days'));
 	$new_days = $avg_days + 1;
 
-	mysql_query("UPDATE collection set next_water_date='" . $new_water_date . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
-	mysql_query("UPDATE collection set next_water_date='" . $new_water_date . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
-
-
+	mysql_query("UPDATE collection set next_water_date='" . $new_water_date . "' where collection_plant_id='" . $collection_plant_id ."'");
+	mysql_query("UPDATE collection set avg_days='" . $new_days . "' where collection_plant_id='" . $collection_plant_id ."'");
 }
 else
 {
 	$new_water_date = date('Y-m-d', strtotime($next_water_date . '-1 days'));
 	$new_days = $avg_days - 1;
-	mysql_query("UPDATE collection set next_water_date='" . $new_water_date . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
 
-
+	mysql_query("UPDATE collection set next_water_date='" . $new_water_date . "' where collection_plant_id='" . $collection_plant_id ."'");
+	mysql_query("UPDATE collection set avg_days='" . $new_days . "' where collection_plant_id='" . $collection_plant_id ."'");
 }
 
 
