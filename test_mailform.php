@@ -29,6 +29,7 @@ $subject = 'Time to water your plants!';
 
 
 $waterDateInfo = "You have to water the following plants TODAY (" . $date . "): \r\n ";
+$waterAmount;
 
   if($numberOfPlants > 0) 
   {
@@ -37,7 +38,18 @@ $waterDateInfo = "You have to water the following plants TODAY (" . $date . "): 
     {
       if ($date == $collection_data_array[$ii][3])
       {
-        
+        switch ($collection_data_array[$ii][4]) 
+        {
+            case "small":
+                $waterAmount[$jj] = "1 cup of water";
+                break;
+            case "medium":
+                $waterAmount[$jj] = "2 cups of water";
+                break;
+            case "large":
+               $waterAmount[$jj] = "3 cups of water";
+                break;
+        }
     	  $imgsrc[$jj] = $collection_data_array[$ii][21];
         $commonName[$jj] = $collection_data_array[$ii][8];
         // Updates the next water date for the current plant
@@ -93,7 +105,7 @@ echo $waterDateInfo;
 <?php
 for ($ii = 0; $ii < $numberOfImg; $ii++) 
 {
-      ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii];?><br><br><?php } ?>
+      ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii] . "<br>"?><br><?php echo "Estimated Watering Amount: " . $waterAmount[$ii]?><br><?php } ?>
 
 <a href=<?php echo $return_page ?>>click here to see your plants</a>
 

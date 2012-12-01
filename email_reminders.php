@@ -29,12 +29,25 @@ $random = $_SESSION['random'];
 
   $waterDateInfo = "Below is the list of upcoming plant watering dates: \r\n ";
   $waterInfo = "";
+  $waterAmount;
 
   if($numberOfPlants > 0) 
   {
     $jj=0;
     for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
     {
+        switch ($collection_data_array[$ii][4]) 
+        {
+            case "small":
+                $waterAmount[$jj] = "1 cup of water";
+                break;
+            case "medium":
+                $waterAmount[$jj] = "2 cups of water";
+                break;
+            case "large":
+               $waterAmount[$jj] = "3 cups of water";
+                break;
+        }
         $imgsrc[$jj] = $collection_data_array[$ii][21];
         $commonName[$jj] = $collection_data_array[$ii][8];
         $description[$jj] = $collection_data_array[$ii][5];
@@ -76,7 +89,7 @@ echo $waterDateInfo;
 <?php
 for ($ii = 0; $ii < $numberOfImg; $ii++) 
 {
-      ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii]?><br><?php echo "Next Water Date: " . $dates[$ii]?><br><?php } ?>
+      ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii]?><br><?php echo "Next Water Date: " . $dates[$ii]?><br><?php echo "Estimated Watering Amount: " . $waterAmount[$ii]?><br><?php } ?>
 
 <a href=<?php echo $return_page ?>>click here to see your plants</a>
 
