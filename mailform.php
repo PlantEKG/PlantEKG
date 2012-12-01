@@ -35,17 +35,21 @@ session_start();
     {
       if ($date == $collection_data_array[$ii][3])
       {
-        $waterInfo .= $collection_data_array[$ii][7] . " with description " . $collection_data_array[$ii][5] . "\r\n ";
+        $waterInfo .= $collection_data_array[$ii][8] . " with description " . $collection_data_array[$ii][5] . "\r\n ";
 
         // Updates the next water date for the current plant
-        $water_frequency = intval($collection_data_array[$ii][21]);
+        $water_frequency = intval($collection_data_array[$ii][7]);
         $lastWaterDate = $collection_data_array[$ii][3];
         $newWaterDate = date('Y-m-d', strtotime($collection_data_array[$ii][3]. ' + ' . $water_frequency . ' days'));
+
+
         mysql_query("UPDATE collection set last_water_date='" . $lastWaterDate . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
         mysql_query("UPDATE collection set next_water_date='" . $newWaterDate . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
       } 
     }
   }
+
+
 
 // echo $waterInfo;
 

@@ -46,7 +46,6 @@
 
 				if($usernote == 'Y' && $hour == $newhour && $usrminute== $minute)
 				{
-				
 					header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/mailform.php?id=" . $user_id . "&email=" . $email . "",TRUE,303);
 				}
 
