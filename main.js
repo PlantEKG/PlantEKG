@@ -73,7 +73,7 @@ function editPlant(plant_id)
     plantName = "<dt> Plant Name </dt>" + "<dd>" + plantInfoArray[6] + "</dd>";
     plantPicture = "<img class='rounded-corners' src=" + plantInfoArray[19] + ">";
 
-    plantInfo = "<dt> Plant Information </dt>" + "<dd>" + plantInfoArray[5] + " <button class='btn btn-small' type='button' onclick='toggle(&quot;other_info&quot;)'>edit</button></dd><div id='other_info' style='display: none;'><form method='POST' name='editInfo' action='editOtherInfo.php'>New Info:<input type='textbox' name='other_info'><input type='submit' value='change'></form></div>";
+    plantInfo = "<dt> Plant Information </dt>" + "<dd>" + plantInfoArray[5] + " <button class='btn btn-small' type='button' onclick='toggle(&quot;other_info&quot;)'>edit</button></dd><div id='other_info' style='display: none;'><form method='POST' name='editInfo' action='editOtherInfo.php'>New Info:<input type='textbox' name='other_info'><input type='hidden' name='collection_plant_id' value='" + plantInfoArray[22] + "'><input type='submit' value='change'></form></div>";
     plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + plantInfoArray[3] + "</dd>";
     plantWater = "<dt> Water Frequency </dt>" + "<dd>Every " + plantInfoArray[20] + "days</dd>";
 
