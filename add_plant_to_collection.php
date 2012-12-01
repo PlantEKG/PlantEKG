@@ -53,7 +53,7 @@ $collection_column8 = 'avg_days';
 mysql_query("INSERT INTO " . $collection_table_name . " (" . $collection_column1 . ", " . $collection_column2 . ", " . $collection_column3 . ", " . $collection_column4 . ", " . $collection_column5. ", " . $collection_column6. ", " . $collection_column8 . ") VALUES ('" . $user_id . "', '" . $plant_id . "', '" . $last_water_date . "', '" . $next_water_date . "', '" . $pot_size . "', '" . $other_info . "', '" . $water_frequency . "')");
 
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 //header( 'Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php' )
 //<script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
 ?>

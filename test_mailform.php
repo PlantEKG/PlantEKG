@@ -4,6 +4,7 @@
   $user_id = $_REQUEST['id'];
   $to =  $_REQUEST['email'];
   $date = date('Y-m-d');
+  $imgsrc;
 
   // Open connection to DB
   $my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
@@ -27,34 +28,40 @@
 $subject = 'Time to water your plants!'; 
 
 $waterDateInfo = "You have to water the following plants TODAY (" . $date . "): \r\n ";
-  $waterInfo = "hi";
+  $waterInfo;
+
   if($numberOfPlants > 0) 
   {
     for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
     {
-    	$imgsrc = $collection_data_array[$ii][21];
-
       if ($date == $collection_data_array[$ii][3])
       {
-        $waterInfo .= $collection_data_array[$ii][8] . " with description " . $collection_data_array[$ii][5] . "\r\n ";
 
+    	  $imgsrc[$ii] = $collection_data_array[$ii][21];
+        $commonName[$ii] = $collection_data_array[$ii][8];
         // Updates the next water date for the current plant
+        $description[$ii] = $collection_data_array[$ii][5];
         $water_frequency = intval($collection_data_array[$ii][7]);
         $lastWaterDate = $collection_data_array[$ii][3];
         $newWaterDate = date('Y-m-d', strtotime($collection_data_array[$ii][3]. ' + ' . $water_frequency . ' days'));
-        $imgsrc = $collection_data_array[$ii][21];
-
 
         mysql_query("UPDATE collection set last_water_date='" . $lastWaterDate . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
         mysql_query("UPDATE collection set next_water_date='" . $newWaterDate . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
-      } 
-    }
+
+      }
+    } 
   }
+ 
+ $query = mysql_query("SELECT random from users where id='" . $user_id . "'");
+ $query_row = mysql_fetch_array($query);
+ $random = ($query_row['random']);
+ $return_page = "http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?random=" . $random;
+
 //create a boundary string. It must be unique 
 //so we use the MD5 algorithm to generate a random hash
 $random_hash = md5(date('r', time())); 
 
-
+$numberOfImg = count($imgsrc);
 //define the headers we want passed. Note that they are separated with \r\n
 $headers = "From: plantEKG@plantEKG.com\r\nReply-To: plantEKG@plantEKG.com";
 
@@ -71,13 +78,22 @@ $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$rand
 //define the body of the message.
 ob_start(); //Turn on output buffering
 ?>
---PHP-alt-<?php echo $random_hash; ?>  
+--PHP-alt-<?php echo $random_hash;?>  
 Content-Type: text/html; charset="iso-8859-1" 
 Content-Transfer-Encoding: 7bit
 
-<h2>Hello World!</h2>
-<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/loginPage.php">click here </a>
-<p>This is something with <b>HTML</b> formatting.</p> 
+<img src="http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/img/logo.png" height="125" width="290"><br>
+
+<?php 
+echo $waterDateInfo;
+?>
+<br>
+<?php
+for ($ii = 0; $ii < $numberOfImg; $ii++ ) 
+{
+      ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii];?><br><br><?php } ?>
+
+<a href=<?php echo $return_page ?>>click here to see your plants</a>
 
 --PHP-alt-<?php echo $random_hash; ?>--
 <?php
