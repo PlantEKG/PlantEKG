@@ -19,15 +19,15 @@
 
 <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
 	<fieldset>
-		<legend>Login</legend>
-		<label for='username' >Username:</label>
+		<legend>Login to PlantEKG</legend>
+		<label for='username' >Email:</label>
 		<input type='text' name='username' id='username'  maxlength="50" />
 		<label for='password' >Password:</label>
 		<input type='password' name='password' id='password' maxlength="50" />
 		<br>
 		<input type='submit' name='Submit' value='Submit' />
 		<br>
-		<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/adduser.php">new user?</a>
+		<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/adduser.php">new user?</a>
 	</fieldset>
 </form>
 

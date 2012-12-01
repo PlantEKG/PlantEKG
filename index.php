@@ -133,7 +133,7 @@ echo "<!DOCTYPE HTML>
 	</div>
 		<br><br><br><br><br><br>
 		<form action='loginPage.php'>
-		<input type='submit' value='Logout' class='btn btn-small'>
+		<input type='submit' value='Logout' onclick=\"return confirm('Are you sure you want to logout?');\" class='btn btn-small'>
 		</form>
   </div>
       

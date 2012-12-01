@@ -78,7 +78,7 @@ function editPlant(plant_id)
     plantWater = "<dt> Water Frequency </dt>" + "<dd>Every " + plantInfoArray[20] + "days</dd>";
 
     plantDescription = "<table align='center'> <tr> <td>" + plantPicture + "</td> <td><dl class='dl-horizontal' style='float:right'>"+ plantName + plantInfo + plantWaterDate +plantWater +"</dl></td></table>";
-    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br><br><form action='delete_plant.php' method='post'><button class='btn btn-small' type='submit' name='collection_plant_id' value='"+ plantInfoArray[22] +"'>Delete Plant</button></form><br><br><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='1'>Add a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='0'>Subtract a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form>";
+    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br><br><form action='delete_plant.php' method='post'><button class='btn btn-small' type='submit' onclick=\"return confirm('Do you really want to delete the plant from your collection?');\" name='collection_plant_id' value='"+ plantInfoArray[22] +"'>Delete Plant</button></form><br><br><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='1'>Add a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='0'>Subtract a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form>";
 }
 
 function goHome()
@@ -190,34 +190,34 @@ if (x==null || x=="" || y ==0)
 
 function showReminders()
 {
-  // alert('In showReminders function');
+
   oldHtml = document.getElementById('largestContainer').innerHTML;
-  // plantInfoArray = find_plant_in_collection(plant_id);
-
-  // plantName = "<dt> Plant Name </dt>" + "<dd>" + plantInfoArray[6] + "</dd>";
-  // plantPicture = "<img class='img-rounded' src=" + plantInfoArray[19] + ">";
-
-  // plantInfo = "<dt> Plant Information </dt>" + "<dd>" + plantInfoArray[5] + "</dd>";
-  // plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + plantInfoArray[3] + "</dd>";
-  // plantSpacing = "<dt> Spacing </dt>" + "<dd>" + plantInfoArray[13] + "</dd>";
-  // plantFeed = "<dt> Feed </dt>" + "<dd>" + plantInfoArray[14] + "</dd>";
-  // plantWater = "<dt> Water </dt>" + "<dd>" + plantInfoArray[17] + "</dd>";
-  // plantLight = "<dt> Preferred Light </dt>" + "<dd>" + plantInfoArray[18] + "</dd>";
-
-  // plantDescription = "<table align='center'> <tr> <td>" + plantPicture + "</td> <td><dl class='dl-horizontal' style='float:right'>"+ plantName + plantInfo + plantWaterDate +plantSpacing + plantFeed +plantWater + plantLight + "</dl></td></table>";
   header = "<h3>Upcoming Plant Watering Reminders</h3>";
   plantWaterTable = "<table align='center'>";
  for(var ii = 0; ii < collection_list.data_ii.length; ii++)
- {
-    plantPicture = "<tr> <td> <img class='img-rounded' src=" + collection_list.data_ii[ii][21] + "><br><br>";
-    plantWaterTable += plantPicture;
-    plantWaterTable += "</td> <td><dl class='dl-horizontal' style='float:right'>";
-    plantName = "<dt> Plant Name </dt>" + "<dd>" + collection_list.data_ii[ii][8] + "</dd>";
-    plantDesc = "<dt> Plant Description </dt>" + "<dd>" + collection_list.data_ii[ii][5] + "</dd>";
-    plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + collection_list.data_ii[ii][3] + "</dd>";
-    plantWaterTable += plantName + plantDesc + plantWaterDate + "</dl></td>";
- }
+   {
+      plantPicture = "<tr> <td> <img class='img-rounded' src=" + collection_list.data_ii[ii][21] + "><br><br>";
+      plantWaterTable += plantPicture;
+      plantWaterTable += "</td> <td><dl class='dl-horizontal' style='float:right'>";
+      plantName = "<dt> Plant Name </dt>" + "<dd>" + collection_list.data_ii[ii][8] + "</dd>";
+      plantDesc = "<dt> Plant Description </dt>" + "<dd>" + collection_list.data_ii[ii][5] + "</dd>";
+      plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + collection_list.data_ii[ii][3] + "</dd>";
+      plantWaterTable += plantName + plantDesc + plantWaterDate + "</dl></td>";
+   }
 
  plantWaterTable += "</table>";
-  document.getElementById('largestContainer').innerHTML = "<br><br>" + header + plantWaterTable + "<br><br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br>";
+
+  // formthing = "<form method='POST' name='addPlant' onsubmit='return validateForm()' action=''>
+
+  //         Size of plant pot<br>
+  //                 Small: <input type='radio' id='large pot' value='large' name='pot_size'><br>
+  //                   Medium: <input type='radio' id='medium pot' value='medium' name='pot_size'><br>
+  //                   Large: <input type='radio' id='small pot' value ='small' name='pot_size'><br>
+  //                   Extra Info (Required) : <input type='textbox' name='other_info'>
+  //                   <br><br>
+  //                   <input type='submit' value='add'>
+  //              </form>";
+ emailWateringFormButton= "<form action='' method='post' name='emailWateringForm'><button class='btn btn-small' type='submit'  name='collection_plant_id' value='nothing'>Email me these reminders</button></form>";
+
+  document.getElementById('largestContainer').innerHTML = "<br><br>" + header + plantWaterTable + "<br><br>" + emailWateringFormButton + "<button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br>";
 }
