@@ -100,6 +100,6 @@ $message = ob_get_clean();
 //send the email
 $mail_sent = @mail( $to, $subject, $message, $headers);
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 ?>
 
