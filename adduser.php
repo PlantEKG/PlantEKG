@@ -22,8 +22,6 @@
 			<input type='text' name='name' id='name'/>
 			<label for='email' >Email:</label>
 			<input type='text' name='email' id='email'/>
-			<label for='phone_number' >Phone Number:</label>
-			<input type='text' name='phone_number' id='phone_number'/>
 			<label for='password' >Password:</label>
 			<input type='text' name='password' id='password'/>
 			<br>Notification Time<br>

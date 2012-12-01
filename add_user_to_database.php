@@ -2,7 +2,6 @@
 
 $name = $_REQUEST['name'];
 $email = $_REQUEST['email'];
-$phone = $_REQUEST['phone_number'];
 $password = $_REQUEST['password'];
 $hour = $_REQUEST['hour'];
 $minute = $_REQUEST['min'];
@@ -56,7 +55,7 @@ $notification = 'Y';
 
 
 
-mysql_query("INSERT INTO " . $user_table_name . " (" . $user_column1 . ", " . $user_column2 . ", " . $user_column3 . ", " . $user_column5 . ", " . $user_column6 . ", " . $user_column7 . ",  " . $user_column8 . ", " . $user_column9 . ", " . $user_column10 .") VALUES ('" . $name . "', '" . $email . "', '" . $phone . "', '" . $password . "', '" . $random . "', '" . $notification . "', '" . $hour . "', '" . $minute . "', '" . $AMPM . "')");
+mysql_query("INSERT INTO " . $user_table_name . " (" . $user_column1 . ", " . $user_column2 . ", " . $user_column5 . ", " . $user_column6 . ", " . $user_column7 . ",  " . $user_column8 . ", " . $user_column9 . ", " . $user_column10 .") VALUES ('" . $name . "', '" . $email . "', '" . $password . "', '" . $random . "', '" . $notification . "', '" . $hour . "', '" . $minute . "', '" . $AMPM . "')");
 
 header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/loginPage.php",TRUE,303);
 
