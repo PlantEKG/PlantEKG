@@ -33,7 +33,6 @@ session_start();
   {
     for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
     {
-
       if ($date == $collection_data_array[$ii][3])
       {
         $waterInfo .= $collection_data_array[$ii][8] . " with description " . $collection_data_array[$ii][5] . "\r\n ";
