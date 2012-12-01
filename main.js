@@ -217,7 +217,7 @@ function showReminders()
   //                   <br><br> <button class='btn btn-small' type='submit'  name='collection_plant_id' value='nothing'>Email me these reminders</button>
   //                   <input type='submit' value='add'>
   //              </form>";
- emailWateringFormButton= "<form action='email_reminders.php' onsubmit='return checkWaterReminderForm();' method='post' name='emailWateringForm'>Enter your email below to have these reminders sent to you! <br>Email (Required) : <input type='textbox' name='email'><br><button class='btn btn-small' type='submit'  name='reminderSubmit' value='nothing' >Send Reminders</button></form>";
+ emailWateringFormButton= "<form action='email_reminders.php' onsubmit='return checkWaterReminderForm();' method='post' name='emailWateringForm'>Enter your email below to have these reminders sent to you! <br>Email (Required) : <input type='textbox' name='email'><br><button class='btn btn-small' type='submit' name='reminderSubmit' value='nothing' >Send Reminders</button></form>";
 
   document.getElementById('largestContainer').innerHTML = "<br><br>" + header + plantWaterTable + "<br><br>" + emailWateringFormButton + "<button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br>";
 }
