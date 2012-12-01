@@ -27,26 +27,28 @@
 //define the subject of the email
 $subject = 'Time to water your plants!'; 
 
+
 $waterDateInfo = "You have to water the following plants TODAY (" . $date . "): \r\n ";
-  $waterInfo;
 
   if($numberOfPlants > 0) 
   {
+    $jj = 0;
     for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
     {
       if ($date == $collection_data_array[$ii][3])
       {
-
-    	  $imgsrc[$ii] = $collection_data_array[$ii][21];
-        $commonName[$ii] = $collection_data_array[$ii][8];
+        
+    	  $imgsrc[$jj] = $collection_data_array[$ii][21];
+        $commonName[$jj] = $collection_data_array[$ii][8];
         // Updates the next water date for the current plant
-        $description[$ii] = $collection_data_array[$ii][5];
+        $description[$jj] = $collection_data_array[$ii][5];
         $water_frequency = intval($collection_data_array[$ii][7]);
         $lastWaterDate = $collection_data_array[$ii][3];
         $newWaterDate = date('Y-m-d', strtotime($collection_data_array[$ii][3]. ' + ' . $water_frequency . ' days'));
 
         mysql_query("UPDATE collection set last_water_date='" . $lastWaterDate . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
         mysql_query("UPDATE collection set next_water_date='" . $newWaterDate . "' where collection_plant_id='" . $collection_data_array[$ii][6] ."'");
+        $jj++;
 
       }
     } 
@@ -89,7 +91,7 @@ echo $waterDateInfo;
 ?>
 <br>
 <?php
-for ($ii = 0; $ii < $numberOfImg; $ii++ ) 
+for ($ii = 0; $ii < $numberOfImg; $ii++) 
 {
       ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii];?><br><br><?php } ?>
 
