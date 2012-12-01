@@ -69,7 +69,7 @@ $waterAmount;
  $query = mysql_query("SELECT random from users where id='" . $user_id . "'");
  $query_row = mysql_fetch_array($query);
  $random = ($query_row['random']);
- $return_page = "http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?random=" . $random;
+ $return_page = "http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random;
 
 //create a boundary string. It must be unique 
 //so we use the MD5 algorithm to generate a random hash
@@ -90,13 +90,14 @@ $headers = "From: plantEKG@plantEKG.com\r\nReply-To: plantEKG@plantEKG.com";
 //add boundary string and mime type specification
 $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\""; 
 //define the body of the message.
+if ($numberOfImg > 0){
 ob_start(); //Turn on output buffering
 ?>
 --PHP-alt-<?php echo $random_hash;?>  
 Content-Type: text/html; charset="iso-8859-1" 
 Content-Transfer-Encoding: 7bit
 
-<img src="http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/img/logo.png" height="125" width="290"><br>
+<img src="http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/img/logo.png" height="125" width="290"><br>
 
 <?php 
 echo $waterDateInfo;
@@ -105,7 +106,7 @@ echo $waterDateInfo;
 <?php
 for ($ii = 0; $ii < $numberOfImg; $ii++) 
 {
-      ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii] . "<br>"?><br><?php echo "Estimated Watering Amount: " . $waterAmount[$ii]?><br><?php } ?>
+  ?> <h3><?php echo $commonName[$ii]; ?></h3><img src=<?php echo $imgsrc[$ii] ?>><br><?php echo "Plant Description: " . $description[$ii] . "<br>"?><br><?php echo "Estimated Watering Amount: " . $waterAmount[$ii]?><br><?php } ?>
 
 <a href=<?php echo $return_page ?>>click here to see your plants</a>
 
@@ -117,4 +118,5 @@ $message = ob_get_clean();
 $mail_sent = @mail( $to, $subject, $message, $headers);
 //if the message is sent successfully print "Mail sent". Otherwise print "Mail failed" 
 echo $mail_sent ? "Mail sent" : "Mail failed";
+}
 ?>
