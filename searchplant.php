@@ -63,8 +63,6 @@
 		echo "</table>";
 
 		$_SESSION['collection_plant'] = $plants_data_array[0][15];
-
-		
 	?>
 	</div>
 

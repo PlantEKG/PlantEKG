@@ -214,10 +214,27 @@ function showReminders()
   //                   Medium: <input type='radio' id='medium pot' value='medium' name='pot_size'><br>
   //                   Large: <input type='radio' id='small pot' value ='small' name='pot_size'><br>
   //                   Extra Info (Required) : <input type='textbox' name='other_info'>
-  //                   <br><br>
+  //                   <br><br> <button class='btn btn-small' type='submit'  name='collection_plant_id' value='nothing'>Email me these reminders</button>
   //                   <input type='submit' value='add'>
   //              </form>";
- emailWateringFormButton= "<form action='' method='post' name='emailWateringForm'><button class='btn btn-small' type='submit'  name='collection_plant_id' value='nothing'>Email me these reminders</button></form>";
+ emailWateringFormButton= "<form action='email_reminders.php' onsubmit='return checkWaterReminderForm();' method='post' name='emailWateringForm'>Enter your email below to have these reminders sent to you! <br>Email (Required) : <input type='textbox' name='email'><br><button class='btn btn-small' type='submit'  name='reminderSubmit' value='nothing' >Send Reminders</button></form>";
 
   document.getElementById('largestContainer').innerHTML = "<br><br>" + header + plantWaterTable + "<br><br>" + emailWateringFormButton + "<button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br>";
+}
+
+function checkWaterReminderForm()
+{
+  // alert('in check water function');
+  var x=document.forms["emailWateringForm"]["email"].value;
+
+  if (x==null || x=="")
+  {
+  alert("Email field must be filled out");
+  return false;
+  }
+  else
+  {
+    alert('Email will be sent to ' + document.forms["emailWateringForm"]["email"].value);
+  }
+
 }
