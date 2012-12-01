@@ -3,7 +3,7 @@ session_start();
 
 if ($_REQUEST['random'] == "")
 {
-	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/loginPage.php",TRUE,303);
+	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/loginPage.php",TRUE,303);
 }
 else
 {
@@ -130,8 +130,10 @@ echo "<!DOCTYPE HTML>
 		echo "<div id='reminder'>
 		<h3> View Watering Reminders </h3>		
 			<button class='btn btn-small' onclick='showReminders()' type='button'>Click to View</button>
-	</div>
+		</div>
 		<br><br><br><br><br><br>
+		<button class='btn btn-small' onclick='editNotifications()' type='button'>Edit Notification Settings</button>
+		<br>
 		<form action='loginPage.php'>
 		<input type='submit' value='Logout' onclick=\"return confirm('Are you sure you want to logout?');\" class='btn btn-small'>
 		</form>

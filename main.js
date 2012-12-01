@@ -1,6 +1,7 @@
 onload = load_function;
 var oldHtml;
 var collection_list;
+var user_info;
 
 function get_collection_from_database()
 {
@@ -39,11 +40,30 @@ function get_plant_name_from_database()
 }
 
 
+function get_user_info_from_database()
+{
+  var xmlHttp = getXMLHttp();
+
+    xmlHttp.onreadystatechange = function()
+    {
+
+        if(xmlHttp.readyState == 4)
+        {
+            var user_labels_string = xmlHttp.responseText;
+            user_info = eval ("({'data_ii':" + user_labels_string  + "})");
+        }
+    }
+
+    xmlHttp.open("GET", 'get_user_info_from_database.php', true);
+    xmlHttp.send(null);
+}
+
 function load_function()
 {
 	// Load plant collection and associated plant info from database
 	get_collection_from_database();
   get_plant_name_from_database();
+  get_user_info_from_database();
 }
 
 function viewPlant(plant_id) 
@@ -236,5 +256,24 @@ function checkWaterReminderForm()
   {
     alert('Email will be sent to ' + document.forms["emailWateringForm"]["email"].value);
   }
-
 }
+
+function editNotifications()
+{
+  // alert('inside edit notifications function');
+  oldHtml = document.getElementById('largestContainer').innerHTML;
+
+  var currentNotificationTime = user_info.data_ii[0][7] + ":" + user_info.data_ii[0][8] + user_info.data_ii[0][9];
+
+notificationTimeForm = "<form method='POST' name='changeTime' action='editNotifications.php' method='POST'><h3>Your Current Notification Time is " + currentNotificationTime + "</h3><h4>Change your Notification Time</h4>Notification Time<br>Hour:<select name = 'hour' style='width: 60px'><option value = 1>1</option><option value = 2>2</option><option value = 3>3</option> <option value = 4>4</option> <option value = 5>5</option> <option value = 6>6</option> <option value = 7>7</option> <option value = 8>8</option> <option value = 9>9</option> <option value = 10>10</option> <option value = 11>11</option> <option value = 12>12</option> </select> Min:<select name = 'min' style='width: 60px'> <option value = 00>00</option> <option value = 15>15</option> <option value = 30>30</option> <option value = 45>45</option> </select> AM/PM:<select name = 'AMPM' style='width: 60px'> <option value = 'AM'>AM</option> <option value = 'PM'>PM</option> </select> <br> <input class='btn btn-small' type='submit' name='submitType' value='Update Time' /></form>"; 
+
+var currentNotificationSetting;
+if (user_info.data_ii[0][6] == "Y")
+  currentNotificationSetting = "You are currently recieving email notifications";
+else 
+  currentNotificationSetting = "You are not recieving email notifications";
+
+toggleNotification = "<form method='POST' name='toggleOnOff' action='editNotifications.php' method='POST'><h3>"+ currentNotificationSetting +"</h3><h4>Turn Notifications On/Off</h4>Notifications On: <input type='radio' id='on' value='Y' name='notificationSetting'><br>Notifications Off: <input type='radio' id='off pot' value='N' name='notificationSetting'><br><input type='submit' name='submitType' value='Update Setting' class='btn btn-small'/></form>"; 
+document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br>" + notificationTimeForm + toggleNotification+ "<button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br>";
+}
+

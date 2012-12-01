@@ -40,7 +40,7 @@
                <option value = 12>12</option>
              </select>
 			  Min:<select name = "min" style="width: 60px">
-               <option value = 0>00</option>
+               <option value = 00>00</option>
                <option value = 15>15</option>
                <option value = 30>30</option>
                <option value = 45>45</option>
