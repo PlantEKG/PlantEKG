@@ -15,7 +15,7 @@
 		<title>PlantEKG</title>
 </head>
 <body>
-<form method="POST" action="add_user_to_database.php" method="POST">
+<form method="POST" name="addUser" action="add_user_to_database.php" method="POST">
 		<fieldset>
 			<legend>Create New Account</legend>
 			<label for='username' >Username:</label>
