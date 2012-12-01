@@ -57,7 +57,7 @@ $notification = 'Y';
 
 mysql_query("INSERT INTO " . $user_table_name . " (" . $user_column1 . ", " . $user_column2 . ", " . $user_column5 . ", " . $user_column6 . ", " . $user_column7 . ",  " . $user_column8 . ", " . $user_column9 . ", " . $user_column10 .") VALUES ('" . $name . "', '" . $email . "', '" . $password . "', '" . $random . "', '" . $notification . "', '" . $hour . "', '" . $minute . "', '" . $AMPM . "')");
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/loginPage.php",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/loginPage.php",TRUE,303);
 
 
 ?>

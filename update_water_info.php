@@ -28,7 +28,7 @@ if($delta)
 else
 {	
 
-	if($avg_days != 0)
+	if($avg_days > 1)
 	{
 
 
@@ -47,7 +47,7 @@ $random = ($query_row['random']);
 
 
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 
 
 ?>
