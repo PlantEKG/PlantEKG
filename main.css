@@ -1,44 +1,69 @@
-body, html
-{
-	margin: 0px;
-	height: 95%;
-	font-family: Helvetica, Arial, sans-serif;
-	text-align: left;
-	/*background-image:url('img/PlantEKG-Landing-Page.png');*/
-	    background: no-repeat fixed 100% 100%;
+body{
+ font:80%/1.3 Arial,sans-serif;
+   margin:0;
+  padding:100px 0 50px 0;
+}
+h1{
+ margin:0;
+ padding:1em;
+ font-size:1.5em;
+ font-weight:bold;
+}
+h1 span{
+ font-size:.667em;
+}
+h2{
+ margin:0;
+ padding:1em 1.25em;
+ font-size:1.2em;
+ font-weight:bold;
+}
+h3{
+ margin:0;
+ padding:1em 1.5em;
+ font-size:1em;
+ font-weight:bold;
+}
+p{
+ margin:0;
+ padding:.5em 1.5em;
+}
+ div#header-custom{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:250px;
+   background:url(img/header.jpg) no-repeat;
+   background-size: 100%;
+ color:black;
+ }
+ div#footer-custom{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50px;
+   background:olive;
+ color:black;
+ }
+ @media screen{
+  body>div#header-custom{
+   position:fixed;
+  }
+  body>div#footer-custom{
+   position:fixed;
+  }
+ }
+ * html body{
+  /*overflow:hidden;*/
+ } 
+ * html div#content-custom{
+  height:100%;
+  overflow:auto;
+ }
 
-/*	background: #000 url('img/PlantEKG-Landing-Page.png') center fixed no-repeat;
-  -moz-background-size: cover;
-  background-size: cover;*/
-}
-/*html { 
-    background: url('img/PlantEKG-Landing-Page.png')
-        no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-*/
-#title
-{
-	color: yellow;
-	/*height: 15%;*/
-	font-weight: bold;
-	background: green;
-}
-
-/*.bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -5000;
-}*/
-
-#background
-{
-	position: asbolute; z-index: -1;
-    background: no-repeat fixed 100% 100%;
-}
+ #logo {
+    /*width:;*/
+    height: 65%;
+ }
