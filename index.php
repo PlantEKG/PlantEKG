@@ -73,12 +73,39 @@ echo "<!DOCTYPE HTML>
 		while($collection_data_hold = mysql_fetch_array($collection_data_query)) {
 			array_push($collection_data_array, $collection_data_hold);
 		}
+		$avg_days_data_array = array();
+		$avg_days_data_query = mysql_query("SELECT * FROM collection");
+		while($avg_days_data_hold = mysql_fetch_array($avg_days_data_query)) {
+			array_push($avg_days_data_array, $avg_days_data_hold);
+		}
+
 		// 11 is the index for the picture
 		$numberOfPlants = count($collection_data_array);
+		$collection_avg_days = 0;
+		$numberOfAllPlants = count($avg_days_data_array);
+		$avgDays;
+
+		for ($jj =0; $jj < $numberOfAllPlants; $jj++)
+		{
+			for ($ii = 0; $ii < $numberOfPlants; $ii++)
+			{
+				if($collection_data_array[$ii][6] == $avg_days_data_array[$jj][6])
+				{
+					// $avgDays[$ii] = $avg_days_data_array[$jj][7];
+					$avgDays[$ii] = $avg_days_data_array[$jj][7];
+				}
+			}
+		}
+
 		if($numberOfPlants > 0) 
 		{
 			for ($ii = 0; $ii < $numberOfPlants; $ii++ ) 
 			{
+				// Matches up the collection_plant_ids and then saves the avg_days from the collection query 
+				// if ($collection_data_array[$ii][6] == $avg_days_data_array[$ii][6])
+				// {
+				// 	$collection_avg_days = $avg_days_data_array[$ii][6];
+				// }
 				echo "<div class='span4'>";
 				echo "<dl>";
 				echo "<h3>" . $collection_data_array[$ii][8] . "</h3>";
@@ -86,7 +113,7 @@ echo "<!DOCTYPE HTML>
 				echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
-				echo "<button class='btn btn-small' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .")'>Edit</button>";
+				echo "<button class='btn btn-small' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .", " . $avgDays[$ii] . ")'>Edit</button>";
 				// echo "<form action='delete_plant.php' method='post'>";
 				// echo "<button class='btn btn-small' type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
 				// echo "</form>";

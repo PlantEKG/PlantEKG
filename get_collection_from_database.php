@@ -24,4 +24,14 @@ while($collection_data_hold = mysql_fetch_array($collection_data_query))
 $collection_data_json = json_encode($collection_data_array);
 
 echo $collection_data_json;
+
+// $avg_days_data_array = array();
+// $avg_days_data_query = mysql_query("SELECT * FROM collection");
+// while($avg_days_data_hold = mysql_fetch_array($avg_days_data_query)) {
+// 	array_push($avg_days_data_array, $avg_days_data_hold);
+// }
+
+// $avg_days_data_json = json_encode($avg_days_data_array);
+
+// echo $avg_days_data_json;
 ?>
