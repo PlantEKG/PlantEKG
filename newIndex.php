@@ -46,24 +46,24 @@ echo "<!DOCTYPE HTML>
 
 echo "<div id='header-custom'>
 
- <a " . $onclick . "><img id='logo' src='img/logo.png'></a>
+ <a " . $onclick . "><img id='logo-cust' src='img/logo.png'></a>
 </div>
 
 <div id='largestContainer'>
     <div class='container'>
 
     <!-- Text above the pictures of plants in the collection -->
-    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
 
       <!-- Generates the row of plants in the user's collection -->
      <div class='row' id='plantRow'>
 
-
+  <div class='row' id='menuRow'>
 
    	<div class='span4'>
-  <div id='myPlants'>
+  <div id='myplants'>
 			<b>My Plants:</b>
-		</div><br><br>
+		</div><br>
   </div>
   	<div class='span4'>
    		<div id='search_plants'>
@@ -78,17 +78,20 @@ echo "<div id='header-custom'>
 		echo "</select>
 		</form>
 		</div>
-		</div>
+	</div>
+
   <div class='span4'>
   <div id='reminder'>
 			<button class='btn btn-small' onclick='showReminders()' type='button'>View Watering Reminders</button>
-		</div><br><br>
-  </div>";
+		</div><br>
+  </div>
+  </div>
+  <br><br> <br><br>
+
+        <!-- Generates the row of plants in the user's collection -->
+     <div class='row' id='plantRow'>";
 		
-
-		// session_start();
 		$table_name2 = 'users';
-
 
 		$query = mysql_query("SELECT id FROM " . $table_name2 . " WHERE random='" . $random . "'");
 		$array = mysql_fetch_array($query);
@@ -138,23 +141,19 @@ echo "<div id='header-custom'>
 				// {
 				// 	$collection_avg_days = $avg_days_data_array[$ii][6];
 				// }
-				echo "<div class='span4'>";
+				$origDate = $collection_data_array[$ii][3];
+				$formattedDate = date("m-d", strtotime($origDate));
+				echo "<div class='span45'>";
 				echo "<dl>";
 				// echo "<h3>" . $collection_data_array[$ii][8] . "</h3>";
 				echo "<img class='img-rounded' src=". $collection_data_array[$ii][21] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 				echo "<dt>" . $collection_data_array[$ii][8] . "</dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
-				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
+				echo "<dt> Next Watering Date: </dt>" . "<dd>" .  $formattedDate . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 				echo "<button class='btn btn-small' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .", " . $avgDays[$ii] . ")'>Edit</button>";
-				// echo "<form action='delete_plant.php' method='post'>";
-				// echo "<button class='btn btn-small' type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
-				// echo "</form>";
+				echo $formattedDate;
 				echo "</dl>";
 				echo "</div>";
-
-				// echo $collection_data_array;
-
-				//echo $collection_data_array[0][$ii] . "<br>";
 			}
 		}
 
@@ -166,7 +165,7 @@ echo "<div id='header-custom'>
 		//echo $_SESSION['collection_user'];
 
 		echo "
-		<br><br><br><br><br><br>
+		<br><br><br>
 		<button class='btn btn-small' onclick='editNotifications()' type='button'>Edit Notification Settings</button>
 		<br>
 		<form action='loginPage.php'>

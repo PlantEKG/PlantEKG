@@ -261,6 +261,9 @@ a:hover {
   width: 380px;
 }
 
+.span45 {
+  width:306px;
+}
 .span4 {
   width: 300px;
 }
@@ -5895,10 +5898,31 @@ a.badge:hover {
 }
 
 /**** CHANGES ****/
-#search_plants {
+#myplants {
   float:left;
+}
+#search_plants {
+  float:right;
+  margin-right: 25px;
 }
 
 #reminder {
   float:right;
+  margin-right: 25px;
 }
+
+#menuRow {
+  position:fixed;
+  height:5%;
+  background-color: white;
+  margin: 10px 0 0 0;
+  padding: 15px 0 0 0;
+}
+
+#logo-cust {
+  height: 65%;
+  float:left;
+  margin-top: 2%;
+  margin-left: 18%;
+}
+

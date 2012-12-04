@@ -17,15 +17,15 @@
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
 
 </head>
-<body>
-	 <div class='navbar navbar-inverse navbar-fixed-top'>
-      <div class='navbar-inner'>";
+<body>";
 
-      	 $link = "index.php?random=" . $random;
+    	$link = "index.php?random=" . $random;
       	$onclick = "onclick=\"parent.location='" . $link . "'\"";
-        echo "<a class='brand'" . $onclick . "> PlantEKG</a>
-      </div>
-    </div>
+
+echo "<div id='header-custom'>
+
+ <a href=''" . $onclick . "><img id='logo-cust' src='img/logo.png'></a>
+</div>
 
 
     <div class='container'>";
@@ -44,11 +44,13 @@
 	while($plants_data_hold = mysql_fetch_array($plants_data_query)) {
 		array_push($plants_data_array, $plants_data_hold);
 	}
-		echo "<br><br><br>";
+
+	$_SESSION['collection_plant'] = $plants_data_array[0][15];
+
+		echo "<br><br><br><br><br><br><br><br><br>";
 		echo "<table align='center'>";
-		echo "<tr><td> <img class='rounded-corners' src= ". $plants_data_array[0][13] . "> </td>";
+		echo "<tr><td> <img class='img-rounded' src= ". $plants_data_array[0][13] . "> </td>";
 		echo "<td>";
-		echo "<h3> " . ucfirst($plants_data_array[0][0]) . "</h3>";
 		echo "<dl class='dl-horizontal' style='float:right'>";
 		//echo "<dt> Latin Name: </dt> <dd>" . $plants_data_array[0][1] . "</dd>";
 		echo "<dt> Spacing: </dt> <dd>" . $plants_data_array[0][7] . "</dd>";
@@ -58,30 +60,23 @@
 		//echo "<dt> Height: </dt> <dd>" . $plants_data_array[0][6] . "</dd>";
 		//echo "<dt> Hardiness: </dt> <dd>" . $plants_data_array[0][5] . "</dd>";
 		//echo "<dt> Preferred Light: </dt> <dd>" . $plants_data_array[0][12] . "</dd>";
-		echo "</dl>";
-		echo "</td> </td>";
-		echo "</table>";
-
-		$_SESSION['collection_plant'] = $plants_data_array[0][15];
-	?>
-	</div>
-
-	<br><br>
-	<button class="btn btn-small" type="button" onclick="toggle('pot_sizes')">Add to Collection</button>
-	<button class="btn btn-small" type="button" onclick="parent.location='index.php?random=<?php echo $_SESSION['random']; ?>'">Go Back</button><br><br>
-
-	<div id='pot_sizes' style="display: none;">
-		<form method="POST" name="addPlant" onsubmit="return validateForm()" action="add_plant_to_collection.php">
-
+		echo "</dl></td>";
+		echo "<tr><td><h4>" . ucfirst($plants_data_array[0][0]). "</h4></td>";
+		//toggle('pot_sizes')
+		echo "<tr><td><button class='btn btn-small' type='button' onclick=\"toggle('pot_sizes')\">Add to Collection</button>
+	<button class='btn btn-small' type='button'" . $onclick. ">Go Back</button><br><br></td>
+		<td><div id='pot_sizes' style='display: none;'><form method='POST' name='addPlant' onsubmit='return validateForm()' action='add_plant_to_collection.php'>
+					<dl>
 					Size of plant pot<br>
-                	Small: <input type="radio" id='large pot' value='large' name='pot_size'><br>
-                    Medium: <input type="radio" id='medium pot' value='medium' name='pot_size'><br>
-                    Large: <input type="radio" id='small pot' value ='small' name='pot_size'><br>
+                	Small: <input type='radio' id='large pot' value='large' name='pot_size'><br>
+                    Medium: <input type='radio' id='medium pot' value='medium' name='pot_size'><br>
+                    Large: <input type='radio' id='small pot' value ='small' name='pot_size'><br>
                     Extra Info (Required) : <input type='textbox' name='other_info'>
+                    </dl>
                     <br><br>
-                    <input type='submit' value='add'>
+                    <input class='btn btn-small' type='submit' value='Add to my Collection'>
                </form>
-	</div>
-
-</body>
-</html>
+	</div></td>
+	</body>
+	</html>";
+	?>

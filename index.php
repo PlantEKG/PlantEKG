@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 
 if ($_REQUEST['random'] == "")
@@ -9,13 +9,25 @@ else
 {
 	$random = $_REQUEST['random'];
 	$_SESSION['random'] = $random;
+	$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
+
+		// Open database "plantekg"
+		$database_name = 'plantekg';
+		mysql_select_db($database_name) or die(mysql_error()) ;
+
+		$plant_name_data_array = array();
+		$plant_name_data_query = mysql_query("SELECT common_name,latin_name FROM new_plants order by common_name");
+		while($plant_name_data_hold = mysql_fetch_array($plant_name_data_query)) {
+			array_push($plant_name_data_array, $plant_name_data_hold);
+		}
+		$numberOfPlantNames = count($plant_name_data_array);
 echo "<!DOCTYPE HTML>
 <html>
 <head>
 	<title>PlantEKG</title>
 
 <!-- CSS FILE -->
-<!-- <link type='text/css' rel='stylesheet' href='main.css'> -->
+<link type='text/css' rel='stylesheet' href='main.css'>
 <link href='css/bootstrap.css' rel='stylesheet' media='screen'>
 
 <!-- JAVASCRIPT FILE -->
@@ -27,36 +39,59 @@ echo "<!DOCTYPE HTML>
  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
 
 </head>
-<body>
- <div class='navbar navbar-inverse navbar-fixed-top'>
-      <div class='navbar-inner'>";
+<body>";
 
     	$link = "index.php?random=" . $random;
       	$onclick = "onclick=\"parent.location='" . $link . "'\"";
-        echo "<a class='brand'" . $onclick . "> PlantEKG</a>
-      </div>
+
+echo "<div id='header-custom'>
+
+ <a href=''" . $onclick . "><img id='logo-cust' src='img/logo.png'></a>
 </div>
 
 <div id='largestContainer'>
     <div class='container'>
 
     <!-- Text above the pictures of plants in the collection -->
-    <br><br><br>
-    <h3>My Plant Collection</h3>
+    <br><br><br><br><br><br><br>
 
       <!-- Generates the row of plants in the user's collection -->
+     <div class='row' id='plantRow'>
+
+  <div class='row' id='menuRow'>
+
+   	<div class='span4'>
+  <div id='myplants'>
+			<b>My Plants:</b>
+		</div><br>
+  </div>
+  	<div class='span4'>
+   		<div id='search_plants'>
+		<form id='searchPlant' action='searchplant.php' method='get'>
+		<select name='plant_name' onchange='this.form.submit();'>
+		<option value='initial'>Find your Plant Here</option>";
+
+		for ($ii = 0; $ii < $numberOfPlantNames; $ii++) 
+		{ 
+			echo "<option value='" . $plant_name_data_array[$ii][1] . "''>" . $plant_name_data_array[$ii][0] . " - " . $plant_name_data_array[$ii][1] . "</option>";
+		}
+		echo "</select>
+		</form>
+		</div>
+	</div>
+
+  <div class='span4'>
+  <div id='reminder'>
+			<button class='btn btn-small' onclick='showReminders()' type='button'>View Watering Reminders</button>
+		</div><br>
+  </div>
+  </div>
+  <br><br> <br><br>
+
+        <!-- Generates the row of plants in the user's collection -->
      <div class='row' id='plantRow'>";
-
-
-		$my_connection = mysql_connect('plantekg.cyj1bgdmdvpz.us-east-1.rds.amazonaws.com', 'PlantEKG', 'plantsrpeople') or die('Could not connect: ' . mysql_error()); // THIS WILL NEED TO CHANGE
-
-		// Open database "plantekg"
-		$database_name = 'plantekg';
-		mysql_select_db($database_name) or die(mysql_error()) ;
-
-		// session_start();
+		
 		$table_name2 = 'users';
-
 
 		$query = mysql_query("SELECT id FROM " . $table_name2 . " WHERE random='" . $random . "'");
 		$array = mysql_fetch_array($query);
@@ -106,23 +141,18 @@ echo "<!DOCTYPE HTML>
 				// {
 				// 	$collection_avg_days = $avg_days_data_array[$ii][6];
 				// }
-				echo "<div class='span4'>";
+				$origDate = $collection_data_array[$ii][3];
+				$formattedDate = date("m/d/y", strtotime($origDate));
+				echo "<div class='span45'>";
 				echo "<dl>";
-				echo "<h3>" . $collection_data_array[$ii][8] . "</h3>";
+				// echo "<h3>" . $collection_data_array[$ii][8] . "</h3>";
 				echo "<img class='img-rounded' src=". $collection_data_array[$ii][21] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
-				echo "<dt> Plant Information </dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
-				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $collection_data_array[$ii][3] . "</dd>";
+				echo "<dt>" . $collection_data_array[$ii][8] . "</dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
+				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $formattedDate . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 				echo "<button class='btn btn-small' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .", " . $avgDays[$ii] . ")'>Edit</button>";
-				// echo "<form action='delete_plant.php' method='post'>";
-				// echo "<button class='btn btn-small' type='submit' name='collection_plant_id' value='". $collection_data_array[$ii][6] ."'>Delete</button>";	
-				// echo "</form>";
 				echo "</dl>";
 				echo "</div>";
-
-				// echo $collection_data_array;
-
-				//echo $collection_data_array[0][$ii] . "<br>";
 			}
 		}
 
@@ -132,33 +162,9 @@ echo "<!DOCTYPE HTML>
 		}
 		echo "</div>";
 		//echo $_SESSION['collection_user'];
-		$plant_name_data_array = array();
-		$plant_name_data_query = mysql_query("SELECT common_name,latin_name FROM new_plants order by common_name");
-		while($plant_name_data_hold = mysql_fetch_array($plant_name_data_query)) {
-			array_push($plant_name_data_array, $plant_name_data_hold);
-		}
-		$numberOfPlantNames = count($plant_name_data_array);
 
-		echo "<div id='search_plants'>";
-		echo "<h3>Find More Plants to Add to your Collection</h3>";
-		echo "<form id='searchPlant' action='searchplant.php' method='get'>";
-
-		echo "<select name='plant_name' onchange='this.form.submit();'>";
-		echo "<option value='initial'>Find your Plant Here</option>";
-
-		for ($ii = 0; $ii < $numberOfPlantNames; $ii++) 
-		{ 
-			echo "<option value='" . $plant_name_data_array[$ii][1] . "''>" . $plant_name_data_array[$ii][0] . " - " . $plant_name_data_array[$ii][1] . "</option>";
-		}
-		echo "</select>";
-		echo "</form>";
-		echo "</div>";
-
-		echo "<div id='reminder'>
-		<h3> View Watering Reminders </h3>		
-			<button class='btn btn-small' onclick='showReminders()' type='button'>Click to View</button>
-		</div>
-		<br><br><br><br><br><br>
+		echo "
+		<br><br><br>
 		<button class='btn btn-small' onclick='editNotifications()' type='button'>Edit Notification Settings</button>
 		<br>
 		<form action='loginPage.php'>
