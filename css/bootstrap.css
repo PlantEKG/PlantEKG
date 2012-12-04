@@ -5913,9 +5913,9 @@ a.badge:hover {
 
 #menuRow {
   position:fixed;
-  height:5%;
+  height:10%;
   background-color: white;
-  margin: 10px 0 0 0;
+  margin: 19px 0 0 0;
   padding: 15px 0 0 0;
 }
 

@@ -23,8 +23,6 @@
       	$onclick = "onclick=\"parent.location='" . $link . "'\"";
 
 echo "<div id='header-custom'>
-
- <a href=''" . $onclick . "><img id='logo-cust' src='img/logo.png'></a>
 </div>
 
 

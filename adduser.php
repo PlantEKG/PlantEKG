@@ -16,8 +16,6 @@
 </head>
 <body>
   <div id='header-custom'>
-
- <a href='loginPage.php'><img id='logo-cust' src='img/logo.png'></a>
 </div>
 <br><br><br><br><br><br><br><br>
 <form method="POST" name="addUser" action="add_user_to_database.php" method="POST">

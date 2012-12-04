@@ -17,8 +17,6 @@
 
 <body>
 <div id='header-custom'>
-
- <a href='loginPage.php'><img id='logo-cust' src='img/logo.png'></a>
 </div>
 <br><br><br><br><br><br><br><br>
 <form id='login' action='login.php' method='post' accept-charset='UTF-8'>

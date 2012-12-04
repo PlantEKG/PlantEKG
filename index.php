@@ -45,15 +45,13 @@ echo "<!DOCTYPE HTML>
       	$onclick = "onclick=\"parent.location='" . $link . "'\"";
 
 echo "<div id='header-custom'>
-
- <a href=''" . $onclick . "><img id='logo-cust' src='img/logo.png'></a>
 </div>
 
 <div id='largestContainer'>
     <div class='container'>
 
     <!-- Text above the pictures of plants in the collection -->
-    <br><br><br><br><br><br><br>
+    <br><br><br><br><br>
 
       <!-- Generates the row of plants in the user's collection -->
      <div class='row' id='plantRow'>
