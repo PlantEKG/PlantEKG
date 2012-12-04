@@ -29,7 +29,7 @@
 		<label for='password' >Password:</label>
 		<input type='password' name='password' id='password' maxlength="50" />
 		<br>
-		<input type='submit' name='Submit' value='Submit' />
+		<input type='submit' class='btn-large' name='Submit' value='Submit' />
 		<br>
 		<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/adduser.php">new user?</a>
 	</fieldset>

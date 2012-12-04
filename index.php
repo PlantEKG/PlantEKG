@@ -82,7 +82,7 @@ echo "<div id='header-custom'>
 
   <div class='span4'>
   <div id='reminder'>
-			<button class='btn btn-small' onclick='showReminders()' type='button'>View Watering Reminders</button>
+			<button class='btn btn-large' onclick='showReminders()' type='button'>View Watering Reminders</button>
 		</div><br>
   </div>
   </div>
@@ -150,7 +150,7 @@ echo "<div id='header-custom'>
 				echo "<dt>" . $collection_data_array[$ii][8] . "</dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
 				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $formattedDate . "</dd>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
-				echo "<button class='btn btn-small' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .", " . $avgDays[$ii] . ")'>Edit</button>";
+				echo "<button class='btn btn-large' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .", " . $avgDays[$ii] . ")'>Edit</button>";
 				echo "</dl>";
 				echo "</div>";
 			}
@@ -165,10 +165,10 @@ echo "<div id='header-custom'>
 
 		echo "
 		<br><br><br>
-		<button class='btn btn-small' onclick='editNotifications()' type='button'>Edit Notification Settings</button>
+		<button class='btn btn-large' onclick='editNotifications()' type='button'>Edit Notification Settings</button>
 		<br>
 		<form action='loginPage.php'>
-		<input type='submit' value='Logout' onclick=\"return confirm('Are you sure you want to logout?');\" class='btn btn-small'>
+		<input type='submit' value='Logout' onclick=\"return confirm('Are you sure you want to logout?');\" class='btn btn-large'>
 		</form>
   </div>
       

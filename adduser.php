@@ -55,7 +55,7 @@
                <option value = "PM">PM</option>
            	</select>
            	<br>
-			<input type='submit' name='Submit' value='Submit' />
+			<input type='submit' class='btn btn-large' name='Submit' value='Submit' />
 		</fieldset>
 </form>
 </body>

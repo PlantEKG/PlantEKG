@@ -85,7 +85,7 @@ function viewPlant(plant_id)
     plantLight = "<dt> Preferred Light </dt>" + "<dd>" + plantInfoArray[18] + "</dd>";
 
     plantDescription = "<table align='center'> <tr> <td>" + plantPicture + "</td> <td><dl class='dl-horizontal' style='float:right'>"+ plantName + plantInfo + plantWaterDate +plantSpacing + plantFeed +plantWater + plantLight + "</dl></td></table>";
-    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button>";
+    document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br><br><br><br>" + plantDescription+ "<br> <button class='btn btn-large' onclick='goHome()' type='button'>Back to Collection</button>";
 }
 
 function editPlant(plant_id, avg_days) 
@@ -101,15 +101,15 @@ function editPlant(plant_id, avg_days)
     plantName = "<dt> Plant Name </dt>" + "<dd>" + plantInfoArray[6] + "</dd>";
     plantPicture = "<img class='img-rounded' src=" + plantInfoArray[19] + ">";
     plantInfo = "<dt> Plant Information </dt>" + "<dd>" + plantInfoArray[5] +"</dd>";
-    editPlantInfoButton = "<dt></dt><dd><button class='btn btn-small' id='editButton' style='display: block; type='button' onclick='toggle(\"other_info\")'>Edit Plant Info</button></dd><dt></dt><dd id='other_info' style='display:none;'><form method='POST' name='editInfo' onsubmit='return checkEditPlant();' action='editOtherInfo.php'><input type='textbox' name='other_info'><input type='hidden' name='collection_plant_id' value='" + plantInfoArray[22] + "'><input type='submit' class='btn btn-small' value='Update Plant Info'></form></dd>";
+    editPlantInfoButton = "<dt></dt><dd><button class='btn btn-large' id='editButton' style='display: block; type='button' onclick='toggle(\"other_info\")'>Edit Plant Info</button></dd><dt></dt><dd id='other_info' style='display:none;'><form method='POST' name='editInfo' onsubmit='return checkEditPlant();' action='editOtherInfo.php'><input type='textbox' name='other_info'><input type='hidden' name='collection_plant_id' value='" + plantInfoArray[22] + "'><input type='submit' class='btn btn-large' value='Update Plant Info'></form></dd>";
     plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + formattedDate + "</dd>";
     plantWater = "<dt> Water Frequency </dt>" + "<dd>Every <u>" + avg_days + "</u> days</dd>";
 
     // Code for buttons and forms 
-    backCollectionBtn = "<dt></dt><dd><button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button></dd>";
-    deletePlantForm = "<dt></dt><dd><form action='delete_plant.php' method='post'><button class='btn btn-small' type='submit' onclick=\"return confirm('Do you really want to delete the plant from your collection?');\" name='collection_plant_id' value='"+ plantInfoArray[22] +"'>Delete Plant</button></form></dd>";
-    addDayButton = "<dt></dt><dd><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='1'>Add a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form></dd>";
-    subtractDayButton = "<dt></dt><dd><form action='update_water_info.php' method='post'><button class='btn btn-small' type='submit' name='delta_id' value='0'>Subtract a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form></dd>";
+    backCollectionBtn = "<dt></dt><dd><button class='btn btn-large' onclick='goHome()' type='button'>Back to Collection</button></dd>";
+    deletePlantForm = "<dt></dt><dd><form action='delete_plant.php' method='post'><button class='btn btn-large' type='submit' onclick=\"return confirm('Do you really want to delete the plant from your collection?');\" name='collection_plant_id' value='"+ plantInfoArray[22] +"'>Delete Plant</button></form></dd>";
+    addDayButton = "<dt></dt><dd><form action='update_water_info.php' method='post'><button class='btn btn-large' type='submit' name='delta_id' value='1'>Add a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form></dd>";
+    subtractDayButton = "<dt></dt><dd><form action='update_water_info.php' method='post'><button class='btn btn-large' type='submit' name='delta_id' value='0'>Subtract a day</button><input type='hidden' name='next_water_date' value='"+ plantInfoArray[3] +"'><input type='hidden' name='collection_plant_id' value='"+ plantInfoArray[22] +"'></form></dd>";
 
     // Puts PlantInfo + Forms together
     plantDescription = "<table align='center'> <tr> <td>" + plantPicture +"</td> <td><dl class='dl-horizontal' style='float:right'>" + backCollectionBtn + "<br>" + deletePlantForm + plantWaterDate + plantWater + addDayButton + subtractDayButton + plantInfo + editPlantInfoButton + "</dl></td><tr><td><h4>"+ plantInfoArray[6]+ "</h4></td></table>";
@@ -272,12 +272,12 @@ function showReminders()
   //                   Medium: <input type='radio' id='medium pot' value='medium' name='pot_size'><br>
   //                   Large: <input type='radio' id='small pot' value ='small' name='pot_size'><br>
   //                   Extra Info (Required) : <input type='textbox' name='other_info'>
-  //                   <br><br> <button class='btn btn-small' type='submit'  name='collection_plant_id' value='nothing'>Email me these reminders</button>
+  //                   <br><br> <button class='btn btn-large' type='submit'  name='collection_plant_id' value='nothing'>Email me these reminders</button>
   //                   <input type='submit' value='add'>
   //              </form>";
- emailWateringFormButton= "<form action='email_reminders.php' onsubmit='return checkWaterReminderForm();' method='post' name='emailWateringForm'>Enter your email below to have these reminders sent to you! <br>Email (Required) : <input type='textbox' name='email'><br><button class='btn btn-small' type='submit' name='reminderSubmit' value='nothing' >Send Reminders</button></form>";
+ emailWateringFormButton= "<form action='email_reminders.php' onsubmit='return checkWaterReminderForm();' method='post' name='emailWateringForm'>Enter your email below to have these reminders sent to you! <br>Email (Required) : <input type='textbox' name='email'><br><button class='btn btn-large' type='submit' name='reminderSubmit' value='nothing' >Send Reminders</button></form>";
 
-  document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br>" + header + plantWaterTable + "<br><br>" + emailWateringFormButton + "<button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br>";
+  document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br><br>" + header + plantWaterTable + "<br><br>" + emailWateringFormButton + "<button class='btn btn-large' onclick='goHome()' type='button'>Back to Collection</button><br>";
 }
 
 function checkWaterReminderForm()
@@ -303,7 +303,7 @@ function editNotifications()
 
   var currentNotificationTime = user_info.data_ii[0][7] + ":" + user_info.data_ii[0][8] + user_info.data_ii[0][9];
 
-notificationTimeForm = "<form method='POST' name='changeTime' action='editNotifications.php' method='POST'><h3>Your Current Notification Time is " + currentNotificationTime + "</h3><h4>Change your Notification Time</h4>Notification Time<br>Hour:<select name = 'hour' style='width: 60px'><option value = 1>1</option><option value = 2>2</option><option value = 3>3</option> <option value = 4>4</option> <option value = 5>5</option> <option value = 6>6</option> <option value = 7>7</option> <option value = 8>8</option> <option value = 9>9</option> <option value = 10>10</option> <option value = 11>11</option> <option value = 12>12</option> </select> Min:<select name = 'min' style='width: 60px'> <option value = 00>00</option> <option value = 15>15</option> <option value = 30>30</option> <option value = 45>45</option> </select> AM/PM:<select name = 'AMPM' style='width: 60px'> <option value = 'AM'>AM</option> <option value = 'PM'>PM</option> </select> <br> <input class='btn btn-small' type='submit' name='submitType' value='Update Time' /></form>"; 
+notificationTimeForm = "<form method='POST' name='changeTime' action='editNotifications.php' method='POST'><h3>Your Current Notification Time is " + currentNotificationTime + "</h3><h4>Change your Notification Time</h4>Notification Time<br>Hour:<select name = 'hour' style='width: 60px'><option value = 1>1</option><option value = 2>2</option><option value = 3>3</option> <option value = 4>4</option> <option value = 5>5</option> <option value = 6>6</option> <option value = 7>7</option> <option value = 8>8</option> <option value = 9>9</option> <option value = 10>10</option> <option value = 11>11</option> <option value = 12>12</option> </select> Min:<select name = 'min' style='width: 60px'> <option value = 00>00</option> <option value = 15>15</option> <option value = 30>30</option> <option value = 45>45</option> </select> AM/PM:<select name = 'AMPM' style='width: 60px'> <option value = 'AM'>AM</option> <option value = 'PM'>PM</option> </select> <br> <input class='btn btn-large' type='submit' name='submitType' value='Update Time' /></form>"; 
 
 var currentNotificationSetting;
 if (user_info.data_ii[0][6] == "Y")
@@ -311,7 +311,7 @@ if (user_info.data_ii[0][6] == "Y")
 else 
   currentNotificationSetting = "You are not recieving email notifications";
 
-toggleNotification = "<form method='POST' name='toggleOnOff' action='editNotifications.php' method='POST'><h3>"+ currentNotificationSetting +"</h3><h4>Turn Notifications On/Off</h4>Notifications On: <input type='radio' id='on' value='Y' name='notificationSetting'><br>Notifications Off: <input type='radio' id='off pot' value='N' name='notificationSetting'><br><input type='submit' name='submitType' value='Update Setting' class='btn btn-small'/></form>"; 
-document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br>" + notificationTimeForm + toggleNotification+ "<button class='btn btn-small' onclick='goHome()' type='button'>Back to Collection</button><br>";
+toggleNotification = "<form method='POST' name='toggleOnOff' action='editNotifications.php' method='POST'><h3>"+ currentNotificationSetting +"</h3><h4>Turn Notifications On/Off</h4>Notifications On: <input type='radio' id='on' value='Y' name='notificationSetting'><br>Notifications Off: <input type='radio' id='off pot' value='N' name='notificationSetting'><br><input type='submit' name='submitType' value='Update Setting' class='btn btn-large'/></form>"; 
+document.getElementById('largestContainer').innerHTML = "<br><br><br><br><br><br>" + notificationTimeForm + toggleNotification+ "<button class='btn btn-large' onclick='goHome()' type='button'>Back to Collection</button><br>";
 }
 
