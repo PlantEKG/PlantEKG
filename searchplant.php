@@ -61,8 +61,8 @@ echo "<div id='header-custom'>
 		echo "</dl></td>";
 		echo "<tr><td><h4>" . ucfirst($plants_data_array[0][0]). "</h4></td>";
 		//toggle('pot_sizes')
-		echo "<tr><td><button class='btn btn-small' type='button' onclick=\"toggle('pot_sizes')\">Add to Collection</button>
-	<button class='btn btn-small' type='button'" . $onclick. ">Go Back</button><br><br></td>
+		echo "<tr><td><button class='btn btn-large' type='button' onclick=\"toggle('pot_sizes')\">Add to Collection</button>
+	<button class='btn btn-large' type='button'" . $onclick. ">Go Back</button><br><br></td>
 		<td><div id='pot_sizes' style='display: none;'><form method='POST' name='addPlant' onsubmit='return validateForm()' action='add_plant_to_collection.php'>
 					<dl>
 					Size of plant pot<br>
