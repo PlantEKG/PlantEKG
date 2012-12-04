@@ -94,7 +94,7 @@ function editPlant(plant_id, avg_days)
     plantInfoArray = find_plant_in_collection(plant_id);
 
     origDateArray = plantInfoArray[3].split('-');
-    formattedDate = origDateArray[1] + "/" + origDateArray[2] + "/" + origDateArray[0];
+    formattedDate = origDateArray[1] + "/" + origDateArray[2];
 
 
     // Plant information
@@ -102,7 +102,7 @@ function editPlant(plant_id, avg_days)
     plantPicture = "<img class='img-rounded' src=" + plantInfoArray[19] + ">";
     plantInfo = "<dt> Plant Information </dt>" + "<dd>" + plantInfoArray[5] +"</dd>";
     editPlantInfoButton = "<dt></dt><dd><button class='btn btn-large' id='editButton' style='display: block; type='button' onclick='toggle(\"other_info\")'>Edit Plant Info</button></dd><dt></dt><dd id='other_info' style='display:none;'><form method='POST' name='editInfo' onsubmit='return checkEditPlant();' action='editOtherInfo.php'><input type='textbox' name='other_info'><input type='hidden' name='collection_plant_id' value='" + plantInfoArray[22] + "'><input type='submit' class='btn btn-large' value='Update Plant Info'></form></dd>";
-    plantWaterDate = "<dt> Next Water Date </dt>" + "<dd>" + formattedDate + "</dd>";
+    plantWaterDate = "<dt id='water-color'> Next Watering : "+ formattedDate + "</dt>";
     plantWater = "<dt> Water Frequency </dt>" + "<dd>Every <u>" + avg_days + "</u> days</dd>";
 
     // Code for buttons and forms 
