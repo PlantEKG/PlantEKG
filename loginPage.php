@@ -4,7 +4,7 @@
 	<title>PlantEKG</title>
 </head>
 <!-- CSS FILE -->
-<!-- <link type="text/css" rel="stylesheet" href="main.css"> -->
+<link type="text/css" rel="stylesheet" href="main.css">
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 
 <!-- JAVASCRIPT FILE -->
@@ -16,7 +16,11 @@
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 <body>
+<div id='header-custom'>
 
+ <a href='loginPage.php'><img id='logo-cust' src='img/logo.png'></a>
+</div>
+<br><br><br><br><br><br><br><br>
 <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
 	<fieldset>
 		<legend>Login to PlantEKG</legend>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <!-- CSS FILE -->
-<!-- <link type="text/css" rel="stylesheet" href="main.css"> -->
+<link type="text/css" rel="stylesheet" href="main.css">
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 
 <!-- JAVASCRIPT FILE -->
@@ -15,6 +15,11 @@
 		<title>PlantEKG</title>
 </head>
 <body>
+  <div id='header-custom'>
+
+ <a href='loginPage.php'><img id='logo-cust' src='img/logo.png'></a>
+</div>
+<br><br><br><br><br><br><br><br>
 <form method="POST" name="addUser" action="add_user_to_database.php" method="POST">
 		<fieldset>
 			<legend>Create New Account</legend>
