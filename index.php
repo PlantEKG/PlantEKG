@@ -162,9 +162,9 @@ echo "<div id='header-custom'>
 		//echo $_SESSION['collection_user'];
 
 		echo "
-		<br><br><br>
-		<button class='btn btn-large' onclick='editNotifications()' type='button'>Edit Notification Settings</button>
 		<br>
+		<button class='btn btn-large' onclick='editNotifications()' type='button'>Edit Notification Settings</button>
+		<br><br>
 		<form action='loginPage.php'>
 		<input type='submit' value='Logout' onclick=\"return confirm('Are you sure you want to logout?');\" class='btn btn-large'>
 		</form>
