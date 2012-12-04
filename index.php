@@ -142,13 +142,13 @@ echo "<div id='header-custom'>
 				// 	$collection_avg_days = $avg_days_data_array[$ii][6];
 				// }
 				$origDate = $collection_data_array[$ii][3];
-				$formattedDate = date("m/d/y", strtotime($origDate));
+				$formattedDate = date("m/d", strtotime($origDate));
 				echo "<div class='span45'>";
 				echo "<dl>";
 				// echo "<h3>" . $collection_data_array[$ii][8] . "</h3>";
 				echo "<img class='img-rounded' src=". $collection_data_array[$ii][21] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
 				echo "<dt>" . $collection_data_array[$ii][8] . "</dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
-				echo "<dt> Next Watering Date: </dt>" . "<dd>" . $formattedDate . "</dd>";
+				echo "<dt id='water-color'> Next Watering : " . $formattedDate . "</dt>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 				echo "<button class='btn btn-large' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .", " . $avgDays[$ii] . ")'>Edit</button>";
 				echo "</dl>";

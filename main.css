@@ -47,6 +47,11 @@ p{
    background:olive;
  color:black;
  }
+#water-color{
+  color:rgb(0,151,186);
+  font-weight:bold;
+}
+
  @media screen{
   body>div#header-custom{
    position:fixed;
