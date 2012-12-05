@@ -29,7 +29,7 @@
 		<br>
 		<input type='submit' class='btn-large' name='Submit' value='Submit' />
 		<br>
-		<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/adduser.php">new user?</a>
+		<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/adduser.php">new user?</a>
 	</fieldset>
 </form>
 

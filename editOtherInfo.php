@@ -19,7 +19,7 @@ $other_info = $_REQUEST['other_info'];
 mysql_query("UPDATE collection set other_info='" . $other_info . "' where collection_plant_id='" . $collection_plant_id ."'");
 // echo "<br>";
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 //header( 'Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/brian/PlantEKG/index.php' )
 //<script language="javascript" type="text/javascript">window.top.window.msg_from_ajax("<?php echo $msg;   
 ?>

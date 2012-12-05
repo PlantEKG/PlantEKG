@@ -33,7 +33,7 @@ if ($submitType == "Update Time")
 	mysql_query("UPDATE users set minute='" . $minute . "' where random='" . $random ."'");
 	mysql_query("UPDATE users set AMPM='" . $AMPM . "' where random='" . $random ."'");
 
-	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random . "",TRUE,303); 
+	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303); 
 }
 else 
 {
@@ -41,7 +41,7 @@ else
 	// echo $newSetting;
 
 	mysql_query("UPDATE users set notification='" . $newSetting . "' where random='" . $random ."'");
-	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random . "",TRUE,303); 
+	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303); 
 
 }
 

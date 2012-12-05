@@ -16,6 +16,6 @@ $collection_plant_id = $_REQUEST['collection_plant_id'];
  $collection_table_name = 'collection';
  mysql_query("DELETE FROM " . $collection_table_name . " WHERE user_id='" . $user_id . "' and collection_plant_id ='" . $collection_plant_id . "'");
 
- header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+ header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 
 ?>

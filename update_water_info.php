@@ -45,7 +45,7 @@ $query = mysql_query("SELECT random from users where id='" . $user_id ."'");
 $query_row = mysql_fetch_array($query);
 $random = ($query_row['random']);
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 
 
 ?>
