@@ -64,6 +64,7 @@ $random = $_SESSION['random'];
   //create a boundary string. It must be unique 
   //so we use the MD5 algorithm to generate a random hash
   $random_hash = md5(date('r', time())); 
+$subject = "Time to water your plants!";
 
   $numberOfImg = count($imgsrc);
   //define the headers we want passed. Note that they are separated with \r\n
@@ -71,7 +72,7 @@ $random = $_SESSION['random'];
 $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\""; 
 //define the body of the message.
 
- $return_page = "http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random;
+ $return_page = "http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random;
 
 ob_start(); //Turn on output buffering
 ?>
@@ -80,7 +81,7 @@ ob_start(); //Turn on output buffering
 Content-Type: text/html; charset="iso-8859-1" 
 Content-Transfer-Encoding: 7bit
 
-<img src="http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/img/logo.png" height="125" width="290"><br>
+<img src="http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/img/logo.png" height="125" width="290"><br>
 
 <?php 
 echo $waterDateInfo;
@@ -100,6 +101,6 @@ $message = ob_get_clean();
 //send the email
 $mail_sent = @mail( $to, $subject, $message, $headers);
 
-header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/index.php?random=" . $random . "",TRUE,303);
+header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/index.php?random=" . $random . "",TRUE,303);
 ?>
 

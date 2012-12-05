@@ -3,7 +3,7 @@ session_start();
 
 if ($_REQUEST['random'] == "")
 {
-	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/allen/PlantEKG/loginPage.php",TRUE,303);
+	header("Location: http://ec2-107-20-111-184.compute-1.amazonaws.com/tommy/PlantEKG/loginPage.php",TRUE,303);
 }
 else
 {
