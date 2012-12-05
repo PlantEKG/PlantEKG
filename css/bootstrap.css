@@ -266,6 +266,8 @@ a:hover {
 }
 .span4 {
   width: 300px;
+  /*float:none;*/
+  /*position: fixed;*/
 }
 
 .span3 {
@@ -996,7 +998,7 @@ input[type="color"],
   height: 20px;
   padding: 4px 6px;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 30px;
   line-height: 20px;
   color: #555555;
   vertical-align: middle;
@@ -1089,13 +1091,13 @@ input[type="checkbox"] {
 
 select,
 input[type="file"] {
-  height: 45px;
+  height: 70px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
 
-  line-height: 45px;
+  line-height: 70px;
 }
 
 select {
@@ -2054,6 +2056,12 @@ table th[class*="span"],
 
 .table td.span4,
 .table th.span4 {
+  float: none;
+  width: 284px;
+  margin-left: 0;
+}
+.table td.span45,
+.table th.span45 {
   float: none;
   width: 284px;
   margin-left: 0;
@@ -3055,8 +3063,8 @@ button.close {
   margin-bottom: 0;
   *margin-left: .3em;
   font-size: 14px;
-  line-height: 20px;
-  *line-height: 20px;
+  line-height: 30px;
+  *line-height: 30px;
   color: #333333;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
@@ -3150,7 +3158,7 @@ button.close {
 
 .btn-large {
   padding: 11px 19px;
-  font-size: 17.5px;
+  font-size: 30px;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
@@ -5899,24 +5907,26 @@ a.badge:hover {
 
 /**** CHANGES ****/
 #myplants {
-  float:left;
+  /*float:left;*/
 }
 #search_plants {
-  float:right;
-  margin-right: 25px;
+  /*float:right;*/
+  /*position:fixed;*/
+  /*margin-right: 25px;*/
 }
 
 #reminder {
-  float:right;
-  margin-right: 25px;
+  /*float:right;*/
+  /*position:fixed;*/
+  /*margin-right: 25px;*/
 }
 
 #menuRow {
   position:fixed;
   height:10%;
   background-color: white;
-  margin: 19px 0 0 0;
-  padding: 15px 0 0 0;
+  margin: 15px 0 0 0;
+  padding: 18px 0 0 0;
 }
 
 #logo-cust {
@@ -5924,5 +5934,9 @@ a.badge:hover {
   float:left;
   margin-top: 2%;
   margin-left: 18%;
+}
+
+#time {
+  width:25px;
 }
 

@@ -51,7 +51,7 @@ echo "<div id='header-custom'>
     <div class='container'>
 
     <!-- Text above the pictures of plants in the collection -->
-    <br><br><br><br><br>
+    <br><br><br>
 
       <!-- Generates the row of plants in the user's collection -->
      <div class='row' id='plantRow'>
@@ -59,7 +59,7 @@ echo "<div id='header-custom'>
   <div class='row' id='menuRow'>
 
    	<div class='span4'>
-  <div id='myplants'>
+  <div id='myplants' style='font-size:30px;'>
 			<b>My Plants:</b>
 		</div><br>
   </div>
@@ -67,7 +67,7 @@ echo "<div id='header-custom'>
    		<div id='search_plants'>
 		<form id='searchPlant' action='searchplant.php' method='get'>
 		<select name='plant_name' onchange='this.form.submit();'>
-		<option value='initial'>Find your Plant Here</option>";
+		<option value='initial' style='font-size:65px;'>Find a Plant</option>";
 
 		for ($ii = 0; $ii < $numberOfPlantNames; $ii++) 
 		{ 
@@ -84,10 +84,10 @@ echo "<div id='header-custom'>
 		</div><br>
   </div>
   </div>
-  <br><br> <br><br>
+  <br><br> <br><br><br><br>
 
         <!-- Generates the row of plants in the user's collection -->
-     <div class='row' id='plantRow'>";
+     <div class='row' id='plantRow' style='font-size:21px;'>";
 		
 		$table_name2 = 'users';
 
@@ -144,9 +144,9 @@ echo "<div id='header-custom'>
 				echo "<div class='span45'>";
 				echo "<dl>";
 				// echo "<h3>" . $collection_data_array[$ii][8] . "</h3>";
-				echo "<img class='img-rounded' src=". $collection_data_array[$ii][21] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
-				echo "<dt>" . $collection_data_array[$ii][8] . "</dt>" . "<dd>" .$collection_data_array[$ii][5] . "</dd>";
-				echo "<dt id='water-color'> Next Watering : " . $formattedDate . "</dt>";
+				echo "<img  style='padding-bottom:10px;' class='img-rounded' src=". $collection_data_array[$ii][21] . " onclick='viewPlant(" . $collection_data_array[$ii][1] .")'>";
+				echo "<dt  style='padding-bottom:10px;'>" . $collection_data_array[$ii][8] . "</dt>" . "<dd  style='padding-bottom:10px;'>" .$collection_data_array[$ii][5] . "</dd>";
+				echo "<dt id='water-color'  style='padding-bottom:10px;'> Next Watering : " . $formattedDate . "</dt>";
 				//echo "<dt> User ID: </dt>" . "<dd>" . $collection_data_array[$ii][0] . "</dd>";
 				echo "<button class='btn btn-large' type='button' onclick='editPlant(" . $collection_data_array[$ii][1] .", " . $avgDays[$ii] . ")'>Edit</button>";
 				echo "</dl>";

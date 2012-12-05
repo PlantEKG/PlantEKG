@@ -48,7 +48,7 @@ echo "<div id='header-custom'>
 		echo "<br><br><br><br><br><br><br><br><br>";
 		echo "<table align='center'>";
 		echo "<tr><td> <img class='img-rounded' src= ". $plants_data_array[0][13] . "> </td>";
-		echo "<td>";
+		echo "<td style='font-size:21px;'>";
 		echo "<dl class='dl-horizontal' style='float:right'>";
 		//echo "<dt> Latin Name: </dt> <dd>" . $plants_data_array[0][1] . "</dd>";
 		echo "<dt> Spacing: </dt> <dd>" . $plants_data_array[0][7] . "</dd>";
@@ -59,7 +59,7 @@ echo "<div id='header-custom'>
 		//echo "<dt> Hardiness: </dt> <dd>" . $plants_data_array[0][5] . "</dd>";
 		//echo "<dt> Preferred Light: </dt> <dd>" . $plants_data_array[0][12] . "</dd>";
 		echo "</dl></td>";
-		echo "<tr><td><h4>" . ucfirst($plants_data_array[0][0]). "</h4></td>";
+		echo "<tr><td><h2>" . ucfirst($plants_data_array[0][0]). "</h2></td>";
 		//toggle('pot_sizes')
 		echo "<tr><td><button class='btn btn-large' type='button' onclick=\"toggle('pot_sizes')\">Add to Collection</button>
 	<button class='btn btn-large' type='button'" . $onclick. ">Go Back</button><br><br></td>
