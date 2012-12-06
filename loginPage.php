@@ -18,7 +18,7 @@
 <body>
 <div id='header-custom'>
 </div>
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
 	<fieldset>
 		<legend style='font-size:35px;'>Login to PlantEKG</legend>
