@@ -51,7 +51,7 @@ echo "<div id='header-custom'>
     <div class='container'>
 
     <!-- Text above the pictures of plants in the collection -->
-    <br><br><br>
+    <br><br><br><br><br>
 
       <!-- Generates the row of plants in the user's collection -->
      <div class='row' id='plantRow'>
