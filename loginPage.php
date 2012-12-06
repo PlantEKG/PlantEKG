@@ -21,15 +21,20 @@
 <br><br><br><br><br><br><br><br>
 <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
 	<fieldset>
-		<legend>Login to PlantEKG</legend>
-		<label for='username' >Email:</label>
-		<input type='text' name='username' id='username'  maxlength="50" />
-		<label for='password' >Password:</label>
-		<input type='password' name='password' id='password' maxlength="50" />
+		<legend style='font-size:35px;'>Login to PlantEKG</legend>
 		<br>
+		<label for='username' style='font-size:25px;' >Email:</label>
+		<input type='text' name='username' id='username'  style='height:50px; width:300px;' maxlength="100" />
+		<br><br><br>
+		<label for='password' style='font-size:25px;' >Password:</label>
+		<input type='password' name='password' id='password' style='height:50px; width:300px;' maxlength="50" />
+		<br><br>
 		<input type='submit' class='btn-large' name='Submit' value='Submit' />
 		<br>
-		<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/adduser.php">new user?</a>
+		<br>
+		<br>
+		<br>
+		<a href="http://ec2-107-20-111-184.compute-1.amazonaws.com/PlantEKG/adduser.php" style='font-size:30px;'>New User?</a>
 	</fieldset>
 </form>
 
